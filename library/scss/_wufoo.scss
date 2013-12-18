@@ -1,0 +1,203 @@
+// WUFOO Styles
+
+
+// GENERIC FORM STYLES
+form {
+	label {
+		display: block;
+		}
+	input, textarea {
+		-webkit-transition: all 0.3s ease-out;
+		-moz-transition:    all 0.3s ease-out;
+		-o-transition:      all 0.3s ease-out;
+		transition:         all 0.3s ease-out;
+		
+		}
+	input[type="text"], 
+	input[type="email"],
+	input[type="tel"],
+	textarea {
+		display: block;
+		@include rem-fallback(padding, .5);
+		@include rem-fallback(margin, 0, 0, .75);
+		margin-left: auto;
+		margin-right: auto;
+				&:hover {
+				background:#f8f8f8;
+				}
+			&:focus {
+				background: $white;
+				box-shadow: 0px 0px 1px rgba(0,0,0,0.5);
+				outline: none;
+				}
+			
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			@include rem-fallback(margin, 0, 0, .75);
+			display: inline-block;
+			}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/		
+
+
+		}// text-input
+		
+	input[type="submit"] {
+		border-radius: 0;
+		line-height: 1;
+		clear: both;
+		border: none;
+		color: $white;
+		-webkit-appearance: none;
+		@include hovers();
+				&:hover, &:focus {
+					background: darken($accent, 10%);
+					}
+				&:active {
+					background: darken($accent, 25%);
+					color: darken($white, 10%);
+					}
+		
+		.sterling-plaza & {
+			background: $blue;
+			}
+		.preston-commons & {
+			background: $l-copper;
+			}
+	
+		}// submit
+		
+		
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		//@include rem-fallback(margin, -.5, 0, 0);
+		}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/		
+
+		
+		
+}// form
+
+
+// MORE SPECIFIC
+
+// LABELS
+.wufoo label{
+	display: none;
+	}
+
+// FIELDS
+input.medium, 
+select.medium, 
+input.large, 
+select.large, 
+textarea.textarea{
+	width: 85%;
+}
+input.text, input.search, textarea.textarea {
+	@include background($l-gray2);
+	border: none;
+	@include box-shadow(inset $l-gray 0 0 25px);
+}
+
+// LAST NAME TYPE DEAL
+.field.text.fn.fn{ 
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		@include rem-fallback(margin, 0, .75, 0, 0);
+		}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/		
+	}
+
+.field.text.fn,
+.field.text.ln {
+	width: 85%;
+	display: block;
+	@include rem-fallback(margin, 0, 0, .75);
+	margin-left: auto;
+	margin-right: auto;
+
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		width: 41.13%;
+		display: inline-block;
+		margin-left: 0;
+		margin-right: 0;
+		}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/		
+	}
+
+// TEXTAREA
+input.large, select.large, textarea.textarea{
+	height: 185px;
+	resize: none;
+	}
+
+
+// SUBMIT BTN
+.wufoo input.btTxt{
+	height: auto;
+	-webkit-appearance: none;
+	border: none;
+	color: $white;
+	width: 85%;
+	@include rem-fallback(padding, .75, 1);
+	@include rem-fallback(margin, .5, 0, 3);
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	text-transform: uppercase;
+	@include rem-fallback(font-size, .8);
+		&:hover {
+			background: $black;
+			}
+			
+		.sterling-plaza & {
+			background: $blue;
+			}
+		.preston-commons & {
+			background: $l-copper;
+			}
+
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		margin-left: 0;
+		margin-right: 0;
+		width: auto;
+		}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/		
+			
+}// input
+
+
+
+// PLACEHOLDERS
+
+[placeholder] {
+	color: $black;
+	}
+
+::-webkit-input-placeholder {
+	@include rem-fallback(font-size, 1);
+	text-transform: uppercase;
+	color: $black;
+	}
+
+:-moz-placeholder { /* Firefox 18- */
+	@include rem-fallback(font-size, 1);
+	text-transform: uppercase;
+	color: $black;
+	}
+
+::-moz-placeholder {  /* Firefox 19+ */
+	@include rem-fallback(font-size, 1);
+	text-transform: uppercase;
+	color: $black;
+	}
+
+:-ms-input-placeholder {  
+	@include rem-fallback(font-size, 1);
+	text-transform: uppercase;
+	color: $black;
+	}
+
+[placeholder]:focus::-webkit-input-placeholder {
+  //transition: opacity 0.1s 0.1s ease-in-out; 
+  opacity: 0;
+}
+
+.name-form:focus::-webkit-input-placeholder {
+  //transition: text-indent 0.1s 0.1s ease-in-out; 
+  //text-indent: -100%;
+  opacity: 1;
+}

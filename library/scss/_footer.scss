@@ -1,0 +1,202 @@
+/*********************
+FOOTER STYLES
+*********************/
+
+.footer {
+	clear: both;
+	background: $brown2;		
+	color: $l-copper;
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			//background: $brown2;
+			}// * BP
+}
+
+.footer-trim {
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		background: url(../images/pattern-brown.png) repeat scroll 0 0 $brown2;
+		height: 60px;
+		box-shadow: 0 11px 30px -5px rgba(0, 0, 0, 0.15)
+		}// * BP
+	}
+
+#inner-footer {
+	max-width: $site-width;
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			margin: $margin2x auto;
+			padding: $margin2x 0;
+			}// * BP
+	}
+	
+	
+
+
+//////////////////////////////////////////////////////////////////////////////// SOCIAL
+.social {
+	@include background(image-url("wave-brown.png"), lighten($brown2, 2%));	
+	padding: $margin $margin2x;
+	text-align: center;
+	border-top: 5px solid rgba(255, 133, 0, 0.11);
+	border-bottom: 3px solid rgba(255, 133, 0, 0.11);
+	h3 {
+		text-align: center;
+		color: $l-copper;
+		@extend %sans-serif-header;
+		width: 100%;
+		margin: 0 0 $marginhalf;
+			@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+				text-align: left;
+				}// * BP
+		}// h3
+	a {
+		color: $white;
+		margin: 0;
+			&:hover {
+				color: $white;
+				}
+		}// a
+
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		background: transparent;
+		padding: 0 $margin2x 0 0;
+		border-top: none;
+		border-bottom: none;
+		border-right: 2px solid lighten(black, 15%);
+		min-height: 150px;
+		text-align: left;
+		}// * BP
+		
+	
+	}// social
+
+	.icon {
+		height: 27px;
+		width: 27px;
+		display: inline-block;
+		background-repeat: no-repeat;
+		@extend .image-replacement;
+		}
+	
+	a.fb {
+		background-image: inline-image('../images/icon-fb.svg');
+		margin-right: $marginhalf;
+		.no-svg & {
+			@include sprite_css(icon-fb);
+			}
+	
+			
+		}// a.fb	
+		
+	a.tw {
+		background-image: inline-image('../images/icon-tw.svg');
+		
+		.no-svg & {
+			@include sprite_css(icon-tw);
+			}
+			
+		}// a.tw
+
+
+
+//////////////////////////////////////////////////////////////////////////////// CONTACT
+.contact {
+	border-top: 2px solid rgba(255, 133, 0, 0.11);
+	border-bottom: 5px solid rgba(255, 133, 0, 0.11);
+	padding: $margin $margin2x;
+	@include background(image-url("wave-brown.png"), $brown);	
+	color: $l-copper;
+	h3 {
+		@extend %sans-serif-header;
+		}
+	
+	p { text-align: center; }
+		
+	a {
+		color: $l-copper;
+		font-style: italic;
+			&:hover {
+				color: $l-copper;
+				}
+		}	
+		
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		padding: 0 $margin2x;
+		background: transparent;
+		border-top: none;
+		border-bottom: none;
+		border-right: 2px solid lighten(black, 15%);
+		border-left: 1px solid transparentize($l-gray, .8);
+		min-height: 150px;
+		
+		h3 {
+			display: block;
+			float: left;
+			}
+		p {
+			text-align: left;
+			float: left;
+			clear: left;
+			}
+		a {
+			float: left;
+			clear: left;
+			}
+		}// * BP
+	
+	
+	}// contact
+	
+	/*
+	if you checked out the link above:
+	http://www.alistapart.com/articles/organizing-mobile/
+	you'll want to style the footer nav
+	a bit more in-depth. Remember to keep
+	it simple because you'll have to
+	override these styles for the desktop
+	view.
+	*/
+	.footer-links {
+
+		ul {
+
+			li {}
+
+		}
+
+	} /* end .footer-links */
+
+//////////////////////////////////////////////////////////////////////////////// TENANT
+.tenant {
+	@extend .contact;
+	border-top: 5px solid rgba(255, 133, 0, 0.11);
+	border-bottom: 2px solid rgba(255, 133, 0, 0.11);
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			display: none;
+			}// * BP
+	}// tenant
+	
+
+//////////////////////////////////////////////////////////////////////////////// COPYWRIGHT
+.copyright {
+	padding: $marginhalf $margin2x;
+	text-align: center;
+	
+	h3 {
+		@extend %sans-serif-header;
+		}
+	
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		border-left: 1px solid transparentize($l-gray, .8);
+		min-height: 150px;
+		color: $l-copper;
+		text-align: left;
+		padding: 0 $margin2x;
+		margin: 0;
+		
+			h3 {
+				text-align: left;
+				}
+		
+		}// * BP
+	
+	}
+

@@ -1,0 +1,345 @@
+// AVAILABLE SPACE FOR BOTH BUILDINGS
+
+//Nav Button Colors
+
+.available-spaces #feature{
+	max-height:566px;
+}
+
+.available-spaces .floorplan-slide, .available-spaces .slide{
+	height:106px;
+	display:block;
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+	min-height:566px;
+	}
+}
+.nav li.sterling-plaza.current-page-ancestor a{
+	background:$blue;
+}
+
+.nav li.preston-commons.current-page-ancestor a{
+	background:$orange;
+}
+
+.building .floor-sidebar{
+	z-index: 1;
+	min-height:566px;
+	overflow:visible;
+	border-bottom:1px solid #dbdddf;
+	display:none;
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		display:block;
+	}
+}
+
+
+.interior .feature-wrap .available-space-image img{
+	width:100%;
+	height:100%;
+}
+
+
+.available-space-image{
+	display:none;
+	z-index:2;
+	position: relative;
+	max-height: 566px !important;
+	max-width:460px !important;
+	left:0;
+	margin: 0 auto;
+@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+	display:block;
+	left:347px;
+}
+img{
+	max-height: 566px !important;
+	max-width:460px !important;
+}
+}
+
+.floor-details{
+	background-color:white;
+	height:66px;
+}
+
+.building .intro p {
+
+}
+.individual-floorplan{
+}
+
+.current + div{
+	z-index:10;
+}
+.more-details-link{
+	z-index: 9;
+}
+.building .more-details-link{
+
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+
+	a{
+		text-decoration: none;
+		letter-spacing: .1em;
+		font-weight:300;
+		text-transform: uppercase;
+		white-space: nowrap;
+		background:url(../images/pattern-brown.png) repeat scroll 0 0 #432d20;
+
+
+		display:inline-block;
+		position: relative;
+		text-align: left;
+		z-index: 1;
+		float: left;
+		clear: left;
+		padding: 1.85em;
+		width:100%;
+		margin:0;
+		color: #ffffff;
+		font-size: 1.2rem;
+		border:none;
+
+		&:hover{
+			background:url(../images/pattern-brown.png) repeat scroll 0 0 #432d20;
+		}
+
+		&:hover:after {
+			border:none;
+		}
+
+		div{
+			padding:.55em;
+			color: $brown;
+		}
+
+		h6{
+			text-transform: lowercase;
+			text-align: center;
+			margin:0;
+			font-family: "chaparral-pro",sans-serif;
+			font-weight:600;
+
+		}
+
+		h3{
+			font-weight:600;
+			font-size:.75em;
+			text-align:center;
+			width:100%;
+		}
+	}
+}
+
+.floorplan-details{
+	padding:1em;
+	padding-left:3em;
+	background:#ffffff;
+	height:65px;
+}
+
+.floorplan-details{
+
+	h5{
+		font-weight:400;
+		font-size:1.15em;
+		text-align: left;
+	}
+
+	h6{
+		font-size:.8em;
+		text-align: left;
+		margin:0;
+	}
+}
+.building nav a.sidebar-active{
+	background-color: #aeb0b3;
+	&:hover{
+		color:$d-gray;
+	}
+}
+
+.building nav a.sidebar-active:after {
+	width: 0;
+	height: 0;
+	border-top: 30px solid transparent;
+	border-bottom: 30px solid transparent;
+	border-left: 20px solid #aeb0b3;
+	position: absolute;
+	content: "";
+	right: -20px;
+	top: 0;
+	-webkit-transition-property: all;
+	-moz-transition-property: all;
+	-o-transition-property: all;
+	transition-property: all;
+	-webkit-transition-duration: 0.2s;
+	-moz-transition-duration: 0.2s;
+	-o-transition-duration: 0.2s;
+	transition-duration: 0.2s;
+	-webkit-transition-timing-function: ease-in-out;
+	-moz-transition-timing-function: ease-in-out;
+	-o-transition-timing-function: ease-in-out;
+	transition-timing-function: ease-in-out;
+}
+
+.floorplan-image{
+	height:373px;
+	img{
+		position: absolute;
+		margin:auto;
+		top:-194px;
+		bottom:0;
+		left:0;
+		right:0;
+		height:220px;
+	}
+}
+
+.interior .available-spaces article {
+	p {
+		width:100%;
+		margin: auto;
+		text-align: left;
+		&:last-of-type {
+			width:auto;
+			margin-bottom:0;
+
+		}
+	}
+}
+
+.interior .available-spaces article h3{
+	width:100%;
+}
+.available-spaces .page-name{
+	margin: 0.75em 0;
+}
+
+.interior .available-spaces article .building-info h3{
+	margin:3rem 1.5rem;
+}
+
+.interior .available-spaces .building-info{
+	clear:both;
+	display:none;
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		display:block;
+	}
+}
+
+.rotator-nav{
+	display:none;
+	top:393px;
+	position: absolute;
+	right:42px;
+	pointer:cursor;
+	z-index:900;
+}
+
+.rotator-nav button{
+	text-indent: 9999px;
+	overflow:hidden;
+	width:12px;
+	height:19px;
+	border:none;
+	padding:0;
+}
+
+.rotator-nav button.next{
+	background-position-x: 12px;
+	margin-left:.5em;
+}
+
+
+.interior .available-spaces article {
+	ul{
+		width:auto;
+		margin:3em 1.5em 3em 2.25em;
+		float:none;
+		padding:0;
+
+	}
+
+	li{
+		text-align: center;
+		margin:0;
+		list-style-type:none;
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			text-align: left;
+		}
+
+	}
+}
+
+.available-spaces .spaces-table{
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		display:none;
+	}
+}
+
+
+.preston-commons{
+
+	.floorplan-details{
+		color:$orange;
+	}
+
+	.floor-details{
+		color:$orange;
+	}
+
+	.more-details-link div{
+		background:$orange;
+	}
+
+	.rotator-nav button{
+		background-image:url('../images/arrows-available-space-orange.gif');
+	}
+
+	.floorplan-image{
+		background: $orange;
+	}
+
+}
+
+.sterling-plaza{
+
+	.floorplan-details{
+		color:$blue;
+	}
+
+	.floor-details{
+		color:$blue;
+	}
+
+	.more-details-link div{
+		background:$blue;
+	}
+
+	.rotator-nav button{
+		background-image:url('../images/arrows-available-space-blue.gif');
+	}
+
+	.floorplan-image{
+		background: $blue;
+	}
+
+}
+
+.floorplans{
+	display:none;
+	height:566px;
+}
+
+.floorplan-image p {
+	padding:2.25em;
+}
+
+.instructions p{
+	padding: 0 2.25em;
+}
+
+

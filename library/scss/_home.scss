@@ -1,0 +1,605 @@
+// HOME
+
+// Rotator
+#feature {
+	width: 100%;
+	max-height: 486px;
+	position: relative;
+	z-index: 1;
+		a {
+			//display: block;
+			}
+			
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			margin: 0 0 $margin;
+			}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+			
+}//feature
+
+#slideshow-posts {}
+
+
+.dummy, .slide {
+	height: 260px;
+	@include breakpoint(46em) {
+		height: 325px;
+		}
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		height: 466px;
+		}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+	}
+.slide {
+	background-position: center !important; // shut up, I'll do what I want.
+	width: 100%;
+	background-size: cover!important;
+
+	background-repeat: no-repeat;
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			background-position: center top !important;
+			box-shadow: rgba(0, 0, 0, 0.3) 0px -5px 15px 0 inset, rgba(255, 255, 255, 0.74) 0px -35px 0px 0 inset;
+			}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+
+
+	}// slide
+
+.no-backgroundsize .slide {
+	background-position: 0 0 !important;
+	}
+
+
+#slideshow-nav {
+	text-align: center;
+	display: block;
+	position: relative;
+	overflow: hidden;
+	z-index: 11;
+	margin: 0;
+	width: 100%;
+	height: 64px;
+	span {
+		cursor: pointer;
+		z-index: 2;
+		width: 100%;
+		height: 100%;
+		position: relative;
+		display: inline-block;
+		text-decoration: none;
+		margin: 0;
+		float: left;
+		border-left: 1px solid $white;
+		@include hovers(0);
+			&:before {
+
+				}
+		img {
+			margin: $margin auto $margin;
+			height: 25px;
+				@include breakpoint($phone-landscape, $no-query: '.no-mediaqueries') {
+					margin: $margin auto $marginhalf;
+					}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/		
+			}
+		
+		&:first-child {
+			margin-left: 0;
+			border-left: none;
+			}
+		&:last-child {
+			margin-right: 0;
+			}
+
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries'){
+			float: none;
+			}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/		
+		
+		
+		}// span
+		
+	h3 {
+		@extend %sans-serif-header;
+		@include rem-fallback(font-size, .6);
+		padding-top: $margin2x + $margin;
+
+			@include breakpoint($phone-landscape, $no-query: '.no-mediaqueries') {
+				padding-top: $margin2x + $marginquarter;
+				@include rem-fallback(font-size, .75);
+				}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/		
+		}// h3	
+
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries'){
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: 0 auto;
+		padding: 30px 0 0 0;
+		max-width: $site-width;
+		height: auto;
+
+		span {	
+			margin: 0 1% 0 0;
+			border-left: none;
+			text-indent: 0;
+			height: auto;
+			float: left;
+
+			&.activeSlide {
+				
+				&:before {
+					}
+				
+				}
+		
+			&:last-child {
+				margin: 0;
+				}
+		
+		}// span
+		
+		h3 {
+			display: block;
+			padding: 0;
+			@include rem-fallback(font-size, 1.25);
+			color: $d-gray;
+			line-height: 40px;
+			height: auto;
+			vertical-align: middle;
+			margin: 2px 0 0;
+			
+			
+			}
+		
+	}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+
+	
+}// slideshow-nav
+
+.slide-1-wrap,
+.slide-2-wrap,
+.slide-3-wrap {
+	position: relative;
+	width: 33.333%;
+	height: 100%;
+	float: left;
+	margin: 0;
+	
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries'){
+	width: 32.6%;
+	height: 135px;
+	margin: 0 1% 0 0;
+	@include translate( 0, 90px );
+	@include hovers(.5s);
+	&.activeSlide {
+		@include translate( 0, 0 );
+		&:before {
+			width: 0; 
+			height: 0; 
+			border-left: 50px solid transparent;
+			border-right: 50px solid transparent;
+			border-bottom: 30px solid $white;
+			position: absolute;
+			content: "";
+			display: block;
+			top: -19px;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+			}
+		div {
+			background: $white;
+				p {
+					text-decoration: none;
+					}
+			}
+		}// activeSlide
+	&:last-child {
+		margin: 0;
+		float: right;
+		}
+	}// * TABLET BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+	
+	@include breakpoint(65em) {
+		height: 105px;
+		@include translate( 0, 61px );
+		}// * BP
+	
+	.no-mediaqueries.no-svg & {
+		width: 31.6%;
+		}
+	
+	.lt-ie9 & {
+		top: 100px;
+			&.activeSlide {
+				top: 20px;
+				}
+		}
+	
+	
+}// slide-x-wrap
+
+
+
+
+div.slide-1, 
+div.slide-2,
+div.slide-3 {
+	height: 100%;
+	background: $white;
+	border-right: 1px solid $gray;
+
+	p, .slide-info {
+		display: none;
+		}
+	
+	
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries'){
+		background: lighten($l-gray, 17%);
+		display: block;
+		padding: 0 0 $marginhalf;
+		border-right: none;
+		box-shadow: rgba(0, 0, 0, 0.2) 0px -11px 18px -8px inset;
+		position: relative;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		.icon-link { display: none; } // icon
+		.slide-info { display: block; }
+		p {
+			margin: 0 $marginhalf 0;
+			display: block;
+			color: $d-gray;
+			font-style: italic;
+			}
+		
+		}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/	
+	
+	
+	}// slide-1, 2, 3
+
+.icon-link {
+	width: 100%;
+	display: block;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	z-index: 13;
+		
+		img {
+			margin: 0 auto;
+			padding-top: 1em;
+			}
+	}	
+	
+#slideshow-nav div.slide-1 img {
+	//width: 30px;
+	}
+	
+
+.home .page-content {
+	
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+		display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+		display: -ms-flexbox;      /* TWEENER - IE 10 */
+		display: -webkit-flex;     /* NEW - Chrome */
+		display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+		margin-top: -113px;
+		position: relative;
+		z-index: 2;
+		}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+	
+	h1, h2, h3, h4, h5, h6 { margin-top: 0; }
+	
+	
+	
+	}// page-content
+
+
+
+
+.touts {
+	background: $brown;
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			max-width: $site-width;
+			margin: 0 auto $margin;
+			background: transparent;
+			overflow: hidden;
+			}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/	
+	.interior & {
+		background: transparent;
+		}
+}
+
+.tout-wrap {
+	width: 100%;
+	.amenities {
+			width: 100%;
+			text-align: center;
+			@include rem-fallback(margin, 1.5, 0, 3);
+				li {
+					@include rem-fallback(margin, 0, 0, .25);
+						&:before {
+							content: "";
+							color: $brown;
+							margin-right: 0;
+							line-height: 100%;
+							vertical-align: middle;
+							@include rem-fallback(font-size, .5);
+							}
+
+					}
+			}
+	&:last-child {
+		margin: 0;
+		}
+		
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		width: 49%;
+		margin: 0 2% 0 0;
+		.amenities {
+			text-align: left;
+			padding: 0 0 0 23%;
+
+				li {
+					@include rem-fallback(margin, .375, 0);
+						&:before {
+							content: "\2022 ";
+							color: $brown;
+							margin-right: 1em;
+							line-height: 100%;
+							vertical-align: middle;
+							@include rem-fallback(font-size, .5);
+							}
+				}
+			}
+		
+		.lt-ie9 & {
+			width: 48%;
+			}
+		
+		}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+		
+}// tout-wrap
+
+.tout {
+	//height: 300px;
+	float: left;
+	width: 50%;
+	//padding: $margin2x 0;
+	img {
+		//display: none;
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			display: block;
+			margin: 0 auto;
+			
+			}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+		}// img
+	a {
+		text-transform: uppercase;
+		text-decoration: none;
+		//background: $gray;
+		color: $white;
+		padding: $marginhalf 0;
+		margin-top: $marginhalf;
+		text-align: center;
+		position: relative;
+			&:hover {
+				color: $blue;
+				}
+		}// a
+	
+	&:last-child {
+		margin: 0;
+		}
+	
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') { // tout
+		height: auto;
+		width: 49%;
+		margin: 0 2% 0 0;
+		}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+		
+		
+	.interior & {
+		width: 100%;
+		margin: 0;
+		}
+		
+	.no-mediaqueries.no-svg & {
+		width: 46%;
+		}
+	.lt-ie9 .interior & {
+		width: 100%;
+		}
+}// tout
+
+
+
+// ie 8
+.lt-ie9 {
+	.interior {
+		.tout-wrap {
+			width: 48%;
+			.amenities {
+				width: 100%;	
+			}
+		}
+	}// interior
+}
+
+
+
+.inner-tout {
+	max-width: 500px;
+	margin: 0 auto;
+	padding: 0;
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			max-width: none;
+			margin: 0;
+			}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+	}
+	
+a.tout-link {
+	display: none;
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		display: block;
+		float: left;
+		@include background(radial-gradient($blue, darken($blue, 15%) 253px));
+		box-shadow: inset 0 0 31px transparentize(darken($blue, 45%), .3);
+		text-shadow: 1px 1px 4px transparentize(darken($blue, 20%), .1);
+		color: $black;
+		font-weight: 500;
+			&:hover {
+				color: $white;
+					&:after {
+						//border-left: 25px solid lighten($d-copper, 3.25%);
+						}
+				}
+/*
+			&:after {
+				position: absolute;
+				right: -25px;
+				top: -1px;
+				content: "";			
+				width: 0; 
+				height: 0; 
+				border-top: 25px solid transparent;
+				border-bottom: 25px solid transparent;
+				border-left: 25px solid $brown2;		
+					@include hovers;		
+				}
+*/
+		
+		&.last {
+			}
+	
+		}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+		
+}// a.tout-link
+
+
+.tout-left {
+	background: image-url('tout-sp-horiz.jpg') no-repeat scroll 0 0 transparent;
+	background-size: cover;
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		//@include blue-box(608px);
+		background: transparent;
+		}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+		
+	
+	.inner-tout {
+
+
+		}
+	
+	}// tout-left
+
+
+a.tout-image {
+	width: 100%;
+	display: block;
+	margin: 0 auto;
+	padding-bottom: 94%;
+	.interior & {
+		padding-bottom: 55%;
+		}
+
+	@include hovers();
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		padding: 0;
+		//max-width: 250px;
+		//float: right;
+		width: auto;
+		margin: 0;
+			.interior & {
+				padding: 0;
+				}
+			}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+			
+/*
+	.no-svg .preston-commons & {
+		@include sprite_css(tout-pc-white);
+			.tout-logo-svg {
+				display: none;
+				}
+		
+		}
+	.no-svg .sterling-plaza & {
+		@include sprite_css(tout-sp-white);
+			.tout-logo-svg {
+				display: none;
+				}
+		}
+*/
+
+
+	}// tout-image
+	
+
+.tout-right {
+	background: image-url('tout-pc-horiz.jpg') no-repeat scroll 0 0 transparent;
+	background-size: cover;
+
+
+
+
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		background: transparent;
+	
+			a.tout-link {
+			@include background(radial-gradient($orange, darken($orange, 15%) 253px));
+			box-shadow: inset 0 0 31px transparentize(darken($orange, 25%), .5);
+			text-shadow: 1px 1px 4px transparentize(darken($orange, 20%), .1);
+			}// tout-link
+		
+		}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+		
+		
+		
+	}// tout-right
+	
+	
+.tout-logo-svg {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	margin: 0 auto;
+	height: 100%;
+	padding: 14% 0;
+	max-width: 100%;
+		@include breakpoint($phone-landscape, $no-query: '.no-mediaqueries') {
+			padding: 22% 0;
+			.interior & {
+				padding: 8% 0;
+				}
+			}// * BP
+
+			@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+				top: 0;
+				height: auto;
+				width: 30%;
+				padding: 8% 0;
+		}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+
+	.no-mediaqueries.no-svg & {
+		width: 122px;
+		}	
+		
+	.download.brochure & {
+		@include rem-fallback(padding, 5);
+		
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			width: 59%;
+			padding: 31% 0 0;
+			}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+			
+		}
+		
+			
+}// tout-logo-svg	
+
+.tout-logo-bg {
+display: none;	
+
+	}
+

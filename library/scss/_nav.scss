@@ -1,0 +1,806 @@
+/*********************
+NAVIGATION STYLES
+*********************/
+
+/*
+all navs have a .nav class applied via
+the wp_menu function; this is so we can
+easily write one group of styles for
+the navs on the site so our css is cleaner
+and more scalable.
+*/
+
+
+
+/////////////////////////////////////// MOBILE NAV STUFF
+
+#oc-wrap {
+	background: $white;
+	min-height: 100%;
+	width: 100%;
+	position: relative;
+	z-index: 1;
+	@include translate3d(0, 0, 0);
+	float: right;
+	display: block;
+	//opacity: 1;
+	@include hovers(.75s, ease-in-out);
+	.active-nav & {
+		@include translate3d( 70%, 0, 0 );
+		//opacity: .3;
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		 @include translate3d( 0, 0, 0 );
+		 //opacity: 1;
+		 }// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+		}// active-nav
+		
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		padding-top: $margin;
+		}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+		
+
+
+
+}// oc-wrap
+
+$larger: 40%;
+$smaller: (100% - $larger) / 2;
+
+a.menu-trigger {
+	//width: $smaller;
+	height: 50%;
+	display: block;
+	width: $smaller;
+	color: $logo-brown;//transparentize($white, .4);
+	@include rem-fallback(font-size, .85);
+	text-transform: uppercase;
+	
+	background-image: inline-image('../images/icon-nav.svg');
+	background-repeat: no-repeat;
+	background-size: 37px;
+	background-position: center top;
+	text-align: center;
+	top: 1em;
+	left: 0;
+	position: relative;
+	z-index:10;
+	float: left;
+	text-decoration: none;
+	line-height: 1;
+	font-weight: 500;
+	padding-top: 19px;
+	top: 10px;
+
+/*
+		&:before {
+			position: absolute;
+			left:-15px;
+			top: 0;
+			content: "";
+			width: 0; 
+			height: 0; 
+			border-top: 15px solid transparent;
+			border-bottom: 15px solid transparent; 
+			border-right: 15px solid $orange;
+			@include hovers; 
+			}
+*/
+		&:hover, &:active, &:focus {
+			color: $logo-brown;//transparentize($white, .4);
+			//background: darken($orange, 5%);
+/*
+			&:before {
+				border-right: 15px solid darken($orange, 5%);
+				}
+*/
+		}
+	
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') { display: none; }
+	
+}// menu-trigger
+
+
+.logo-link {
+	//background-image: inline-image('../images/logo.svg');
+	//background-repeat: no-repeat;
+	//background-color: white;
+	//background-size: 100%;
+	//padding: 0 0 50%;
+	@include background(inline-image('../images/logo-light.png'), $brown);
+	padding: $margin;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 83%;
+	max-width: 177px;
+	min-height: 75px;
+		box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.46);
+	
+
+	display: block;
+	width: $larger;
+	position: absolute;
+	left: 0;
+	right: 0;
+	float: left;
+	margin: 0 auto;
+	@extend .image-replacement;
+	
+	@include breakpoint($phone-landscape) {
+		max-width: 220px;
+		min-height: 93px;
+		}// * BP
+		
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		margin-top: -$margin;
+		padding: 0 0 4%;
+		float: none;
+		max-width: none;
+		@include background(image-url("logo-light.png"), image-url("logo-bg.jpg"));
+		background-size: auto, 100%;
+		background-repeat: no-repeat;
+		background-position: center center, 0 0;
+		background-color: transparent;
+		position: relative;
+		width: 304px;
+		height: 162px;
+		box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.46);
+			&:hover {
+					box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.9);
+				}
+
+			img { display: none; }
+
+
+		}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+		
+		img { margin: 0 auto; }
+		
+		
+	.no-multiplebgs & {
+		background: url("../images/logo.png") no-repeat scroll center center $brown;
+		}
+
+		
+	}// logo-link
+	
+	
+.nav li.location-link {
+	@include rem-fallback(font-size, .85);
+	float: right;
+	display: block;
+	width: $smaller;
+	height: 100%;
+	@include background(inline-image('../images/icon-location.svg'));
+	background-repeat: no-repeat;
+	background-size: 15px;
+	background-position: center 7px;
+	a {
+		display: block;
+		height: 100%;
+		padding-top: 25px;
+		font-weight: 500;
+		letter-spacing: 0;
+		color: $logo-brown;//transparentize($white, .4);
+		@include hovers;
+		
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			color: $black;
+			width: auto;
+			height: auto;
+			background: transparent;
+			letter-spacing: 0.1em;
+			font-weight: normal;
+			padding-top: .65em;
+			}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+			&:hover {
+				}
+		}// a
+
+
+	&.current_page_item a {
+		background: transparent;
+		color: $logo-brown;
+		}
+
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		float: none;
+		width: auto;
+		height: auto;
+		background: none;
+		font-weight: normal;
+		display: inline-block;
+		@include rem-fallback(font-size, 1);
+		&.current_page_item a {
+			background: $l-gray;
+			color: $white;
+			}
+		}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+
+	}// location-link
+
+
+//// SIDE NAV
+
+
+#side {
+	overflow: auto;
+	display: block;
+	position: absolute;
+	z-index: 2;
+	width: 70%;
+	@include translate3d( -100%, 0, 0 );
+	float: left;
+	min-height: 100%;
+	@include hovers(.75s, ease-in-out);
+	//background: $accent;
+
+	.nav {
+	width: 100%;
+		li {
+		width: 100%;
+		display: block;
+		text-align: left;
+		
+		&.current-menu-item a, 
+		&.current_page_item a,
+		&.current-page-ancestor a {
+			background: lighten($l-gray, 5%);
+			}
+		
+		&.sterling-plaza a {
+			border-top: 2px solid black;
+			background: $d-blue;
+			}
+		&.preston-commons a {
+			border-bottom: 2px solid black;
+			background: $d-orange;
+			}
+	
+		a {
+			text-transform: uppercase;
+			@include rem-fallback(font-size, 1);
+			margin: 0;
+			padding: $margin;
+			border-top: 1px solid $accent;
+			background: $white;
+			text-transform: uppercase;
+			letter-spacing: .25em;
+			text-shadow: 1px 1px 4px transparentize(lighten($brown, 40%), .9);				
+			 &:focus {
+					background: lighten($l-gray, 5%);
+					color: $white;
+					}
+			}
+		
+		&:last-child a {
+			border-top: none;
+			}
+		
+		}// li
+		.sub-menu {
+		position: relative;
+			
+			.current-menu-item > a {
+			color: $gray;
+			}
+			a:hover {
+			color: $gray;
+			}
+			
+			.current-menu-parent > a {
+			color: $gray;
+			}	
+			
+			li a:before {
+			content: "";
+			}
+			
+			.sub-menu li a {
+				@include rem-fallback(font-size, 1);
+				&:before {
+				content: "- ";
+				}
+				}
+			
+		}// sub-menu
+		
+		
+	}//.nav
+
+
+	.login a:hover {
+	color: $gray;
+	}
+
+	// Custom Scrollbar for the sidebar (webkit only) from http://css-tricks.com/examples/WebKitScrollbars/
+	&::-webkit-scrollbar {
+	    width: 6px;
+	}
+	 
+	/* Track */
+	&::-webkit-scrollbar-track {
+	   // -webkit-box-shadow: inset 0 0 6px $white; 
+	   // -webkit-border-radius: 10px;
+	    //border-radius: 10px;
+	    background: $accent;
+	}
+	 
+	/* Handle */
+	&::-webkit-scrollbar-thumb {
+	    -webkit-border-radius: 10px;
+	    border-radius: 10px;
+	    background: $orange; 
+	    //-webkit-box-shadow: inset 0 0 6px $white; 
+	}
+	&::-webkit-scrollbar-thumb:window-inactive {
+	    //background: red; 
+	}
+
+
+	.no-csstransforms3d.no-csstransitions & {
+		margin-left: -100%;
+		}
+	.no-csstransforms3d.no-csstransitions .active-nav & {
+		margin-left: 0;
+		}
+
+
+
+}// #side
+
+
+
+
+
+
+
+
+.active-nav #side {
+@include translate3d( 0, 0, 0 );
+
+box-shadow: 2px 0 25px 15px rgba(0, 0, 0, 0.2);
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+	box-shadow: none;
+	@include translate3d( -100%, 0, 0 );
+
+	}
+
+.nav li ul.sub-menu, .nav li ul.children {
+padding: 0 0 0 .85em;
+	li:first-child {
+	display: none;
+	}
+}
+
+}
+
+/////////////////////////////////////// END MOBILE NAV STUFF
+
+
+
+
+nav[role="navigation"] {
+	height: 100%;
+	
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		float: none;
+		clear: none;
+		background: $white;
+		border-bottom: 10px solid transparent;
+		//margin-top: 125px;
+		width: auto;
+		}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+	
+	}
+
+.nav {
+	font-size: 0; // to allow for inline-block nav items with no spaces
+	margin: 0;
+	text-align: center;
+	//height: 100%;
+	
+
+	li {
+		display: none;
+		
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			position: relative;
+			@include rem-fallback(font-size, 1);
+			display: inline-block;
+			//top: 57px;
+			}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+
+		a {
+			font-weight: 400;
+			font-style: normal;
+			letter-spacing: .1em;
+			text-transform: uppercase;
+			display: block;
+			text-decoration: none;
+			color: $black;
+			padding: $margin ($marginhalf + $marginquarter) 10px;
+			margin: 0;
+				@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+					padding: .65em $marginquarter 10px;
+					}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+/*
+				@include breakpoint(60em, $no-query: '.no-mediaqueries') { // 60em +
+					//padding: .65em ($marginquarter + $marginhalf) 10px;
+					}
+*/
+					
+				@include breakpoint(65em) {
+					padding: .65em ($marginquarter + $marginhalf) 10px;
+					}					
+			/*
+			remember this is for mobile ONLY, so there's no need
+			to even declare hover styles here, you can do it in
+			the style.scss file where it's relevant. We want to
+			keep this file as small as possible!
+			*/
+			&:hover, &:focus {
+			
+				@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+					background-color: transparentize($white, .9);
+					}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+			
+			}
+		}// a
+
+		&:first-child a {
+			border-left: none;
+			}
+		&:nth-child(2) a {
+			border-right: none;
+			}
+		&:nth-child(4) a {
+			border-left: none;
+			}
+		&:last-child {
+			
+			a {
+				border-right: none;
+				}
+			
+			}// last-child
+
+		/*
+		so you really have to rethink your dropdowns for mobile.
+		you don't want to have it expand too much because the
+		screen is so small. How you manage your menu should
+		depend on the project. Here's some great info on it:
+		http://www.alistapart.com/articles/organizing-mobile/
+		*/
+		ul.sub-menu,
+		ul.children {
+			
+			@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+				margin: 0;
+				width: auto;//200px;
+				border: 1px solid #ccc;
+				border-top: 0;
+				position: absolute;
+				display: none;
+				z-index: 8999;
+				}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+		
+		
+			li {
+
+				a {
+					padding-left: 30px;
+
+					@include breakpoint($tablet, $no-query: '.no-mediaqueries') {			
+						padding-left: 10px;
+						border-right: 0;
+						display: block;
+						width: 180px;
+						border-bottom: 1px solid #ccc;
+						}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+							
+					&:hover,
+					&:focus {}
+
+					&:link {}
+
+				}// a
+
+				&:first-child {}
+
+				&:last-child {
+					@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+						border-bottom: 0;
+						}
+				
+				}
+
+			}// li
+			
+			/* highlight sub-menu current page */
+			li.current-menu-item,
+			li.current_page_item,
+			li.current-page-ancestor {
+				a {
+					}
+			}
+		
+		}// children
+		
+		/* showing sub-menus */
+		&:hover ul {
+		
+			@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+				top: auto;
+				//display: block;
+				}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+		
+		}
+
+
+	} /* end .menu li */
+
+	/* highlight current page */
+	li.current-menu-item,
+	li.current_page_item,
+	li.current-page-ancestor {
+
+		a {
+			background: $l-gray;
+			color: $white;
+			}
+
+	}  /* end current highlighters */
+
+
+
+
+
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		@include radial-gradient(lighten($l-gray, 25%), lighten($l-gray, 10%), 10px, 1216px);
+		border: 0;
+		padding-top: 15px;
+		//height: 45px;
+		box-shadow: inset 0 -9px 27px -11px transparentize(darken($d-gray, 20%), .55);
+		}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+
+	.no-cssgradients & {	
+		background: lighten($l-gray, 15%);
+		}
+
+
+
+} /* end .nav */
+
+
+li.sterling-plaza {
+	background: $d-blue;
+		a {
+			padding: .65em ($marginquarter) 10px;
+			}
+	&.current-menu-item a,
+	&.current_page_item a,
+	&.current-page-ancestor a {
+		background: $d-blue;
+		}
+	
+	@include breakpoint(65em) {
+		a { padding: .65em ($marginquarter + $marginhalf) 10px; }
+		}// * BP
+
+}// sterling-plaza
+
+li.preston-commons {
+	background: $d-orange;
+		a {
+			padding: .65em ($marginquarter) 10px;
+			}
+	&.current-menu-item a,
+	&.current_page_item a,
+	&.current-page-ancestor a {
+		background: $d-orange;
+		}
+		
+	@include breakpoint(65em) {
+		a { padding: .65em ($marginquarter + $marginhalf) 10px; }
+		}// * BP
+
+		
+}// li.preston-commons
+	
+	
+.header nav {
+	border-bottom: 10px solid $l-gray;
+	&.sterling-plaza {
+		border-bottom: 10px solid $d-blue;
+		}
+	&.preston-commons {
+		border-bottom: 10px solid $d-orange;
+		}
+	.home & {
+		border-bottom: 10px solid $white;
+		}
+	.interior & {
+		border-bottom: 10px solid $l-gray;
+		}
+}// .header  nav
+
+
+
+
+$box-width: 150px;
+
+
+h3.tenant-login   {	
+	display: none;
+		
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			display: block;
+					color: $d-gray;
+					display: block;
+					background: $l-gray;
+					text-decoration: none;
+					position: absolute;
+					right: 20px;
+					top: -$marginhalf;
+					text-shadow: none;
+					padding: .4em $marginhalf 0;
+					text-align: center;
+					text-transform: uppercase;
+					letter-spacing: .1em;
+					width: $box-width;
+					@include hovers();
+					span {
+						display: block;
+						text-transform: none;
+						font-style: italic;
+						font-weight: 400;
+						@include rem-fallback(font-size, .9);
+						&:before {
+							@include rem-fallback(font-size, 1.1);
+							position: absolute;
+							right: -$marginhalf;
+							z-index: -1;
+							top: 0;
+							margin: 0 auto;
+							content: "";
+							width: 0;
+							height: 0;
+							border-left: $marginhalf solid transparent;
+							border-right: $marginhalf solid transparent;
+							border-bottom: $marginhalf solid black;						
+							}
+
+						}// span
+					
+						
+					&:before {
+						position: absolute;
+						left: -$marginhalf;
+						z-index: -1;
+						top: 0;
+						margin: 0 auto;
+						content: "";
+						width: 0;
+						height: 0;
+						border-left: $marginhalf solid transparent;
+						border-right: $marginhalf solid transparent;
+						border-bottom: $marginhalf solid black;						
+						}
+						
+					&:after {
+						position: absolute;
+						right: 0;
+						left: 0;
+						margin: 0 auto;
+						content: "";
+						width: 0;
+						height: 0;
+						bottom: -20px;
+						border-left: ($box-width / 2) solid transparent;
+						border-right: ($box-width / 2) solid transparent;
+						border-top: 20px solid $l-gray;
+						@include hovers();
+						}// after
+						
+						
+					&:hover, &:focus {
+						color: $accent;
+						padding-top: $margin2x;//($marginhalf + $marginquarter);
+						background: darken($l-gray, 5%);
+							&:after {
+								border-top: 20px solid darken($l-gray, 5%);
+								}
+							a {
+								opacity: 1;
+								margin: 0 auto;
+								//-webkit-transform: translateY(0);
+								&:hover {
+									background: transparentize($white, .7);
+
+									}// hover
+								.no-opacity & {
+									display: block;
+									}
+								}// a
+
+						}// hover
+
+				a {
+				opacity: 0;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				border-bottom: 1px solid transparentize($gray, .5);
+				@include rem-fallback(padding, .25, 0);
+				@include rem-fallback(font-size, .75);
+				@include hovers(.2s, ease-in);
+
+					&:nth-of-type(2) {
+						@include rem-fallback(top, 1.25);
+						}
+	
+					.no-opacity & {
+						display: none;
+						}
+	
+				}// a
+				
+				}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+
+		.footer & {
+			display: block;
+			a {
+			@extend %sans-serif-header;
+
+			padding: $marginhalf;
+			display: block;
+			@include orange-box;
+			color: $white;
+			text-decoration: none;
+			text-align: center;
+			border-top: 5px solid rgba(41, 20, 14, 0.37);
+			border-bottom: 5px solid rgba(41, 20, 14, 0.37);
+			
+			.no-cssgradients & {
+				background: $orange;	
+				}
+
+				&:active, &:hover {
+					color: $white;
+					}
+					}
+			@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+				display: none;
+				}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+
+			}// footer &
+
+			
+			
+			
+	}// tenant-login
+
+.no-opacity h3.tenant-login a {
+	display: none;
+	}
+.no-opacity h3.tenant-login a:first-child + a {
+	top: 25px;
+	}
+.no-opacity h3.tenant-login:hover a {
+	display: block;
+	}
+
+
+
+.footer .nav {
+	height: auto;
+	li {
+		top: 0;
+		}
+	}
+.footer .hidden {
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			display: none;
+			}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+	}

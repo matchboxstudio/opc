@@ -1,0 +1,189 @@
+// INTERIOR
+
+.interior { // the BODY class
+	.page-title {
+		margin: $marginhalf 0 $marginhalf;
+		font-weight: 100;
+		}
+	.entry-content {
+		//margin: 0 0 $margin2x;
+		}
+	.dummy, .slide {
+		height: 0;
+		padding-bottom: 39%;
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			height: 566px;
+			padding-bottom: 0;
+			background-size: cover;
+			}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+		}
+	.slide {
+		box-shadow: none;
+		background-size: 100%;
+		background-repeat: no-repeat;
+		}
+	#feature {
+	max-height: none;
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			max-height: 566px;
+		}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+
+		}
+	.feature-wrap {
+		overflow: hidden;
+		min-height: 100px;	
+		 img {
+		 	max-width: 175%;
+		 	//height: 130px;
+			margin: 0 auto;
+			}
+			
+			@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+				overflow: visible;
+				img {
+					height: 566px;
+					max-width: 100%;
+					}// img
+				
+				&.smaller img {
+					height: auto;
+					}
+				
+				}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+
+						
+		}// feature-wrap
+	
+	article {
+		text-align: center;
+		h2, h3, p {
+			width: 85%;
+			margin: 0 auto;
+			}
+		h2 {
+			margin: 0 auto ($marginhalf + $marginquarter);
+			line-height: 1.2;
+			}
+		p:last-of-type {
+			width: 85%;
+			margin-bottom: $margin2x;
+			}
+
+		ul {
+			background: $white;
+			width: 50%;
+			float: left;
+			padding: 0 $margin;
+			text-align: left;
+			margin: ($margin + $marginhalf) auto $margin;
+			li {
+				margin: $marginhalf 0 $margin;
+				text-indent: -13px;
+				&:before {
+					content: "\2022 ";
+					color: $brown;
+					margin-right: 1em;
+					line-height: 100%;
+					vertical-align: middle;
+					@include rem-fallback(font-size, .5);
+		
+					}
+				
+				}
+			
+			@include breakpoint($tablet, $no-query: '.no-mediaqueries') { // UL TABLET
+				background: none;
+				width: 50%;
+				margin: $marginhalf 0 $margin2x;
+				padding: 0 0 0 12%;
+				li {
+					margin: $marginquarter 0;
+					}
+				
+				}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+			
+			
+			}// ul
+
+		
+			@include breakpoint($tablet, $no-query: '.no-mediaqueries') { // ARTICLE TABLET
+				h2, h3, p {
+					width: 70%;
+					}
+				p:last-of-type {
+					width: 54.5%;
+					}
+
+				}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+
+
+		}// article
+		
+		
+
+
+
+
+}// interior
+
+
+
+
+
+
+
+
+
+// LOCATION SPECIFIC
+
+.map {
+	margin: $margin auto;
+	
+	img {
+		margin: 0 auto;
+		}
+	
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		margin: 0 0 $margin3x; 
+		&.last {
+			margin: 0 0 $margin2x 2.762430939%;
+			}// last
+		img {
+			margin: 0;
+			}
+
+		}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+	
+	.lt-ie9.no-mediaqueries & {
+	
+		margin-top: 3em;
+		
+				&.last {
+			margin-top: 3em;
+			}// last
+
+		}
+	
+	
+}// map
+
+
+// NEIGHBORHOOD SPECIFIC
+
+.lt-ie9 .entry-content {
+	margin-bottom: 3em;
+	}
+	
+	
+// CONTACT PAGE SPECIFIC
+
+.page-id-32 {
+	
+	h4 {
+		@extend .contact-name;
+		}
+	p {
+		//@extend .contact-title;
+		}
+	
+	}

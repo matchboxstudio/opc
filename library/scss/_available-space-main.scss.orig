@@ -1,0 +1,338 @@
+// AVAILABLE SPACE MAIN STYLES & MODAL WINDOWS
+
+
+
+
+
+
+.single-suite { // the post type
+	
+	article {
+		text-align: left;
+	}
+	
+	.article-header  {
+		h1, h2, h3, h4 {
+			}
+		}
+	
+	.single-title {
+		@include rem-fallback(font-size, 1.2);
+		font-weight: 400;
+		@include rem-fallback(margin, 0, 0, .375);
+		}
+	
+	.details {
+		width: 100%;
+		background: $l-gray2;
+	}
+	
+	.floor-number {
+		@include rem-fallback(font-size, 2.5);
+		@include rem-fallback(margin, 1, 0, 0);
+		text-transform: uppercase;
+		font-style: normal;
+		letter-spacing: 0;
+		font-weight: 100;
+
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			@include rem-fallback(margin, 2, 0, 0);
+			}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/		
+		
+		
+	}
+	
+	.download-link {
+		text-transform: uppercase;
+		@include rem-fallback(font-size, .75);
+		letter-spacing: 0;
+		}
+	
+}// single-suite
+
+
+// SPECIFIC TARGETING BASED ON PAGE
+
+.sterling-plaza {
+	section.twelvecol {
+		background: lighten($blue, 10%);
+		}
+	section {
+	}
+}// sterling-plaza
+
+.preston-commons {
+	section.twelvecol {
+		background: lighten($orange, 10%);
+	}
+}// preston-commons
+
+
+#back {
+	cursor: pointer;
+	display: block;
+	color: $white;
+	width: 100%;
+	text-align: center;
+	text-transform: uppercase;
+	background: transparentize($white, .9);
+	@include rem-fallback(padding, 1, 0, 1, 1);
+	 &:active, &:focus, &:hover {
+		background: transparentize($white, .95);
+		text-decoration: underline;
+	 	}
+	
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		display: none;
+		}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/		
+	}
+
+
+
+.suite-section-header { // the pulled out header style 
+	text-transform: uppercase;
+	font-style: normal;
+	font-weight: 600;
+	letter-spacing: 0;
+	width: 100%;
+	text-align: center;
+	@include rem-fallback(margin, 0, 0, 1);
+	.sterling-plaza & {
+		color: $blue;
+		}
+	.preston-commons & {
+		color: $orange;
+		}
+	.article-header & { // the suite number one
+		@include rem-fallback(margin, 0, 0, 1);
+		}
+		
+
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		width: auto;
+		text-align: left;
+		margin: 0;
+		.article-header & { // the suite number one
+			@include rem-fallback(margin, 0, 0, 2);
+			}
+
+	}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/		
+
+}// suite-section-header
+
+
+
+.single-suite .article-header {
+	@include rem-fallback(padding, 2);
+	text-align: center;
+	h1, h2, h3, h4, h4 a, .suite-section-header {
+		color: $white;
+		width: auto;
+		}
+
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		@include rem-fallback(padding, 8, 2, 2);
+		text-align: left;
+		}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/		
+
+
+
+}// article-header 
+
+
+
+// SPECIFIC STYLES
+
+.floor-plan {
+	height: 350px;
+	background: $blue;
+	position: relative;
+	img {
+		max-height: 300px;
+		margin: auto auto;
+		position: absolute;
+		top: 0; right: 0; bottom: 0; left: 0;
+		}
+		
+	.preston-commons & {
+		background: $orange;
+		}
+		
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		height: 500px;
+		img {
+			max-height: none;
+			}
+		}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/		
+				
+}// floor-plan
+
+
+
+// LEASING INFO
+.leasing-information {
+	@include rem-fallback(padding, 2, 0, 0);
+
+	
+	.suite-section-header {
+			@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+				width: auto;
+				@include rem-fallback(margin, 0, 0, 0, 3.5);
+			}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/		
+
+		}
+
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		@include rem-fallback(padding, 3, 0, 0);
+		}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/		
+
+
+}// leasing-information
+
+
+
+.leasing-contact {
+	text-align: center;
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			text-align: left;
+			@include rem-fallback(margin, 0, 0, 0, 1.5);
+			}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+	section & p {
+		width: auto;
+		
+		&.leasing-contact-phone {
+			width: auto;
+			@include rem-fallback(margin, 0);
+			}
+		
+		
+		}
+	
+}// leasing-contact
+
+.leasing-contact-name {
+	@include rem-fallback(font-size, 1.4);
+	font-weight: 100;
+	line-height: 1;
+	
+	.single-suite & {
+		@include rem-fallback(margin, 0, 0, 1);
+		}
+	
+}// contact-name
+
+.leasing-contact-title-email {
+	text-transform: uppercase;
+	font-weight: 500;
+	line-height: 1;
+	.single-suite & {
+		@include rem-fallback(margin, 0, 0, 1);
+		}
+	a {
+		text-decoration: none;
+		color: $black;
+			.sterling-plaza & {
+				&:hover {
+				color: $blue;
+				}
+			}
+			.preston-commons & {
+				&:hover {
+				color: $orange;
+				}
+			}
+		}
+		
+		
+		
+}// title-email
+
+.leasing-contact-phone {
+}// phone
+
+
+
+
+// EMAIL SECTION STYLES
+.suite-email {
+	@include rem-fallback(margin, 2, 0);
+
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		@include rem-fallback(padding, 3, 0, 0);
+		@include rem-fallback(margin, 0, 0, 1);
+
+		}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+
+}// suite-email
+
+
+
+// MODAL STYLES AND OVERRIDES
+
+#cboxLoadedContent {
+	padding: 0!important;
+	}
+#cboxContent {
+	margin-top: 0!important;
+	background:transparent!important;
+	}
+#cboxBottomCenter {
+	background: transparent!important;
+	}
+#cboxClose {
+	//float: left;
+	//top: 0;
+	//@include rem-fallback(right, 1.5);
+	right: 1rem !important;
+	bottom: 1rem!important;
+	width: 40px;
+	height: 40px;
+	background-size: 100%;
+}
+
+#colorbox  {
+	width: 100% !important;
+	max-width: 1000px;
+	//height: 100% !important;
+	//overflow: visible!important;
+	left: 0 !important;
+	right: 0 !important;
+	//top: 0 !important;
+	//bottom: 0 !important;
+	margin: 0 auto;
+	//position: fixed!important;
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		//width: 90% !important;
+		height: 90% !important;
+		//position: absolute!important;
+		//top: 0;
+		//bottom: 0;
+		}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+	}
+#cboxContent, #cboxWrapper, #cboxLoadedContent {
+	width: 100% !important;
+	height: 100%!important;
+	padding: 0 !important;
+	overflow: visible !important; 
+
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			height: 90% !important;
+			}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+	}
+#cboxWrapper {
+	overflow: visible !important; 
+}
+#cboxLoadedContent {
+	iframe {
+		//max-height: 1110px !important;
+		}
+}
+
+#cboxContent {
+	margin-top: 0!important;
+}
+
+#cboxTitle,
+#cboxBottomCenter {
+	display: none;
+	}

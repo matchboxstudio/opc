@@ -1,0 +1,301 @@
+/*********************
+CLEARFIXIN'
+*********************/
+
+// Contain floats: nicolasgallagher.com/micro-clearfix-hack/
+.clearfix {
+  zoom: 1;
+	&:before, &:after { content: ""; display: table; }
+	&:after { clear: both; }
+}
+
+/*********************
+TOOLS
+*********************/
+
+// BORDER-BOX ALL THE THINGS! (http://paulirish.com/2012/box-sizing-border-box-ftw/)
+* { 
+	@include box-sizing(border-box);
+}
+
+// http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+.image-replacement {
+	text-indent: -999em;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+/*********************
+COLORS
+Need help w/ choosing your colors? Try this site out:
+http://0to255.com/
+*********************/
+
+$black:             #404041;
+	$gray: lighten($black, 20%);
+$white:             #fff;
+
+
+// gradients
+
+$l-gray: #bbbdbf;
+$l-gray2: lighten($l-gray, 15%);
+$d-gray: #6e6f72;
+
+$blue: #91b5bd;//#88adb5;
+$d-blue: #73939a;
+
+$brown: #453124;
+	$brown2: #432d20;
+		$logo-brown: #75655b;
+
+$orange: #b74826;
+	$d-orange: #b44826;//#b04625;
+$l-copper: #bd8550;//#c4986d;
+$d-copper: #936a41;
+$copper: #bc8554;
+
+
+$accent: $brown;
+
+$link-color:        $accent;
+$link-hover:        darken($link-color, 9%);
+
+
+
+
+
+
+
+/*********************
+UNITS
+*********************/
+$site-width: 1060px;
+
+$margin: 1.5em;
+$marginhalf: (.5 * $margin);
+$marginquarter: (.25 * $margin);
+$margin2x: (2 * $margin);
+$margin3x: (3 * $margin);
+$margin4x: (4 * $margin);
+
+
+/*********************
+BREAKPOINTS
+*********************/
+$phone: 1em;
+$phone-landscape: 25em;
+$tablet: 56em;
+$desktop: 71em;
+
+
+
+/*********************
+TYPOGRAPHY
+*********************/
+
+$sans-serif:        "futura-pt", Helvetica, Arial, sans-serif;
+$serif:            "chaparral-pro", Georgia, Cambria, Times New Roman, Times, serif;
+
+// font-size
+@mixin font-size( $decimal-size, $keyword: null ) {
+  $base-font-multiplier: 1;
+  @if $keyword { font-size: $keyword; }
+  @else { font-size: $decimal-size * $base-font-multiplier * 16px; }
+  font-size: $decimal-size * 1rem;
+}
+
+
+
+/*********************
+TRANISTION
+*********************/
+
+/*
+I totally rewrote this to be cleaner and easier to use.
+You'll need to be using Sass 3.2+ for these to work.
+Thanks to @anthonyshort for the inspiration on these.
+USAGE: @include transition(all 0.2s ease-in-out);
+*/
+@mixin hovers($time: .2s, $function: ease-in-out) {
+  @include transition-property(all);
+  @include transition-duration($time);
+  @include transition-timing-function($function);
+}
+
+
+// Fade In add classes 'fade-in'
+/* make keyframes that tell the start state and the end state of our object */
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+ 
+.fade-in {
+    opacity:0;  /* make things invisible upon start */
+    -webkit-animation:fadeIn ease-out 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+    -moz-animation:fadeIn ease-out 1;
+    animation:fadeIn ease-out 1;
+ 
+    -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+ 
+    -webkit-animation-duration:.6s;
+    -moz-animation-duration:.6s;
+    animation-duration:.6s;
+}
+ 
+.fade-in {
+-webkit-animation-delay: 1.5s;
+-moz-animation-delay: 1.5s;
+animation-delay: 1.5s;
+}
+
+.two {
+-webkit-animation-delay: .01s;
+-moz-animation-delay: .01s;
+animation-delay: .01s;
+}
+
+
+/*********************
+CSS3 GRADIENTS
+Be careful with these since they can
+really slow down your CSS. Don't overdue it.
+*********************/
+
+/* @include css-gradient(#dfdfdf,#f8f8f8); */
+@mixin css-gradient($from: #dfdfdf, $to: #f8f8f8) {
+	background-color: $to;
+	background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+	background-image: -webkit-linear-gradient(top, $from, $to);
+	background-image: -moz-linear-gradient(top, $from, $to);
+	background-image: -o-linear-gradient(top, $from, $to);
+	background-image: linear-gradient(to bottom, $from, $to);
+}
+
+
+@mixin radial-gradient($from: red, $to: blue, $frompx: 10px, $topx: 200px) {
+	@include background-image(radial-gradient(45px 45px, $from $frompx, $to $topx)); 
+	}
+
+
+
+
+
+/*********************
+BOX SIZING
+*********************/
+
+/* @include box-sizing(border-box); */
+/* NOTE: value of "padding-box" is only supported in Gecko. So
+probably best not to use it. I mean, were you going to anyway? */
+@mixin box-sizing($type: border-box) {
+	-webkit-box-sizing: $type;
+	-moz-box-sizing:    $type;
+	-ms-box-sizing:     $type;
+	box-sizing:         $type;
+}
+
+
+
+/*********************
+SPRITES
+*********************/
+
+@import "icons/*.png";
+@mixin sprite_css($name) {
+  @include icons-sprite($name);
+  height: icons-sprite-height($name);
+  width: icons-sprite-width($name);
+}
+
+
+/*********************
+REM FALLBACK
+*********************/
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@mixin rem-fallback($property, $values...) {
+  $max: length($values);
+  $pxValues: '';
+  $remValues: '';
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $pxValues: #{$pxValues + $value*16}px;
+
+    @if $i < $max {
+      $pxValues: #{$pxValues + " "};
+    }
+  } 
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $remValues: #{$remValues + $value}rem;
+
+    @if $i < $max {
+      $remValues: #{$remValues + " "};
+    }
+  } 
+  
+  #{$property}: $pxValues; 
+  #{$property}: $remValues; 
+}
+
+
+
+/*********************
+BUTTONS
+*********************/
+
+
+
+
+@mixin blue-box($scope: 400px) {
+	@include background(image-url("wave-white-20.png"), radial-gradient($blue, darken($blue, 15%) $scope));
+	box-shadow: inset 0 0 31px transparentize(darken($blue, 25%), .5);
+	text-shadow: 1px 1px 4px transparentize(darken($blue, 20%), .1);
+	color: darken($blue, 35%);
+	} 
+@mixin orange-box($scope: 400px){
+	color: darken($orange, 25%);
+	@include background(radial-gradient(lighten($orange, 10%), darken($orange, 10%) $scope));
+	
+	box-shadow: inset 0 0 31px transparentize(darken($orange, 25%), .6);
+	text-shadow: 1px 1px 4px transparentize(darken($orange, 20%), .5);
+	}
+	
+%brown-button {
+	@include background(image-url("wave-brown.png"), lighten($brown2, 2%));	
+	text-transform: uppercase;
+	color: $white;
+	letter-spacing: .25em;
+	box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.25);
+	text-shadow: 1px 1px 4px transparentize(lighten($brown, 40%), .9);
+		&:hover {
+			//@include background(image-url("wave-white-5.png"), lighten($d-copper, 2%));	
+			//color: $white;
+			}
+		&:active {
+			
+			}
+	}
+	
+%sans-serif-header {
+	@include font-size(1.4, normal);
+	letter-spacing: .1em;
+	text-transform: uppercase;
+	text-align: center;
+	
+	a {
+		font-style: normal;
+		}
+}
+
+%relative {
+	position: relative;
+	}

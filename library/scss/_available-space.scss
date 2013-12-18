@@ -1,0 +1,449 @@
+// AVAILABLE SPACE FOR BOTH BUILDINGS
+
+//Nav Button Colors
+
+.available-spaces #feature{
+	max-height: 566px;
+}
+
+.available-spaces .tablepress th div {
+	//display:block;
+}
+
+.available-spaces #tablepress-1_filter{
+	text-align: center;
+}
+
+.available-spaces .floorplan-slide, .available-spaces .slide{
+	height: 106px;
+	display: block;
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+	min-height: 566px;
+	}
+}
+/*
+.nav li.sterling-plaza.current-page-ancestor a{
+	background:$blue;
+}
+
+.nav li.preston-commons.current-page-ancestor a{
+	background:$orange;
+}
+*/
+
+.building .floor-sidebar{
+	z-index: 1;
+	overflow: visible;
+	border-bottom: 1px solid #dbdddf;
+	display: none;
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		display: block;
+	}
+}
+
+
+.interior .feature-wrap .available-space-image img{
+	width: 100%;
+	height: 100%;
+}
+
+
+.available-space-image{
+	display: block;
+	z-index: 2;
+	position: absolute;
+	//max-height: 566px !important;
+	//max-width:460px !important;
+	max-height: 566px;
+	max-width: 460px ;
+	left: 500000px;
+	margin: 0 auto;
+@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+	position: relative;
+	left: 0;
+	display: block;
+	left: 344px;
+}
+img{
+	//max-height: 566px !important;
+	//max-width:460px !important;
+	max-height: 566px;
+	max-width: 460px;
+}
+}
+
+.floor-details{
+	background-color: white;
+	height: 66px;
+}
+
+.building .intro p {
+
+}
+.individual-floorplan{
+}
+
+.current + div{
+	z-index: 10;
+}
+.more-details-link{
+	z-index: 9;
+}
+.building .more-details-link{
+
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+
+	a{
+		text-decoration: none;
+		letter-spacing: .1em;
+		font-weight: 300;
+		text-transform: uppercase;
+		white-space: nowrap;
+		background: url(../images/pattern-brown.png) repeat scroll 0 0 #432d20;
+
+
+		display:inline-block;
+		position: relative;
+		text-align: left;
+		z-index: 1;
+		float: left;
+		clear: left;
+		padding: 1.85em;
+		width: 100%;
+		margin: 0;
+		color: #ffffff;
+		font-size: 1.2rem;
+		border: none;
+
+		&:hover{
+			background: url(../images/pattern-brown.png) repeat scroll 0 0 #432d20;
+		}
+
+		&:hover:after {
+			border: none;
+		}
+
+		div{
+			padding:.55em;
+			color: $brown;
+		}
+
+		h6{
+			text-transform: lowercase;
+			text-align: center;
+			margin: 0;
+			font-family: "chaparral-pro",sans-serif;
+			font-weight: 600;
+
+		}
+
+		h3{
+			font-weight: 600;
+			font-size: .75em;
+			text-align: center;
+			width: 100%;
+		}
+	}
+}
+
+.floorplan-details{
+	padding: 1em;
+	padding-left: 3em;
+	background: $white;
+	height: 65px;
+}
+
+.floorplan-details{
+
+	h5{
+		font-weight: 400;
+		font-size: 1.15em;
+		text-align: left;
+	}
+
+	h6{
+		font-size: .8em;
+		text-align: left;
+		margin: 0;
+	}
+}
+.building nav a.sidebar-active{
+	background-color: #aeb0b3;
+	color: $white;
+	&:hover{
+		color: $white;
+	}
+}
+
+.building nav a.sidebar-active:after {
+	width: 0;
+	height: 0;
+	border-top: 30px solid transparent;
+	border-bottom: 30px solid transparent;
+	border-left: 20px solid #aeb0b3;
+	position: absolute;
+	content: "";
+	right: -20px;
+	top: 0;
+	-webkit-transition-property: all;
+	-moz-transition-property: all;
+	-o-transition-property: all;
+	transition-property: all;
+	-webkit-transition-duration: 0.2s;
+	-moz-transition-duration: 0.2s;
+	-o-transition-duration: 0.2s;
+	transition-duration: 0.2s;
+	-webkit-transition-timing-function: ease-in-out;
+	-moz-transition-timing-function: ease-in-out;
+	-o-transition-timing-function: ease-in-out;
+	transition-timing-function: ease-in-out;
+}
+
+.floorplan-image{
+	height: 373px;
+	img{
+		position: absolute;
+		margin: auto;
+		top: -194px;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		max-height: 220px;
+		padding: 1em;
+	}
+}
+
+.interior .available-spaces article {
+	p {
+		width: 100%;
+		margin: auto;
+		text-align: left;
+		&:last-of-type {
+			width: auto;
+			margin-bottom: 0;
+
+		}
+	}
+}
+
+.interior .available-spaces article h3{
+	width:100%;
+}
+
+.interior .available-spaces article .building-info h3{
+	margin:3rem 1.5rem;
+}
+
+.available-spaces .building-info{
+	clear:both;
+	display:none;
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		display:block;
+	}
+}
+
+.available-spaces .building-sidebar{
+	margin-top:106px;
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		margin-top:0;
+	}
+}
+
+.rotator-nav{
+	display:none;
+	top:393px;
+	position: absolute;
+	right:42px;
+	pointer:cursor;
+	z-index:900;
+}
+
+.rotator-next:focus, .rotator-prev:focus{
+	-moz-appearance: none;
+	outline:0;
+}
+
+.rotator-nav button{
+	text-indent: 9999px;
+	overflow:hidden;
+	width:12px;
+	height:19px;
+	border:none;
+	padding:0;
+}
+
+.rotator-nav button.rotator-next{
+	background-position-x: 12px;
+	margin-left:.5em;
+}
+
+
+.interior .available-spaces article {
+	ul{
+		width:auto;
+		margin:3em 1.5em 3em 2.25em;
+		float:none;
+		padding:0;
+
+	}
+
+	li{
+		text-align: center;
+		margin:0;
+		list-style-type:none;
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			text-align: left;
+		}
+
+	}
+}
+
+.available-spaces .spaces-table{
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		display:none;
+	}
+}
+
+
+.preston-commons{
+
+
+
+	.floor-sidebar{
+		border:none;
+		height:195px;
+		top:371px;
+		position: absolute;
+		right:0px;
+		background: transparent;
+	}
+
+	.floor-sidebar.fourcol{
+		width:68.745856%;
+		background: $white;
+	}
+
+	.floorplans{
+		height:195px;
+		position:static;
+	}
+
+	.slide.floorplan-slide{
+		min-height:195px;
+	}
+	.available-space-image{
+		max-height: 372px;
+		max-width:726px ;
+		left: 500000px;
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		left:167px;
+		}
+
+		img{
+			max-height: 372px;
+			max-width:726px ;
+		}
+	}
+	.floorplan-image{
+	height:195px;
+	float:right;
+	width:55%;
+		img{
+		position:static;
+		height:200px;
+		margin:0 auto;
+		padding:1em;
+		}
+	}
+
+	.floorplan-details{
+		color:$copper;
+		height:67px;
+	}
+
+	.floor-details{
+		color:$copper;
+		width:45%;
+	}
+
+	.more-details-link {
+	width:45%;
+	top:67px;
+		div{
+			background:$copper;
+		}
+	}
+
+	.rotator-nav button{
+		background-image:url('../images/arrows-available-space-orange.gif');
+	}
+
+	.floorplan-image{
+		background: $copper;
+	}
+
+	.rotator-nav{
+		top:20px;
+		left:260px;
+		right:0;
+	}
+
+
+}
+
+.sterling-plaza{
+
+	.suite-1616 img{ //needed to fix squishing of floorplan in preview
+		//max-height: 115px;
+	}
+
+	#mapster_wrap_0{
+		min-width:460px !important;
+	}
+
+	.available-space-image img{
+		min-width:460px;
+	}
+
+	.building .floor-sidebar{
+		min-height:566px;
+	}
+
+	.floorplan-details{
+		color:$blue;
+	}
+
+	.floor-details{
+		color:$blue;
+	}
+
+	.more-details-link div{
+		background:$blue;
+	}
+
+	.rotator-nav button{
+		background-image:url('../images/arrows-available-space-blue.gif');
+	}
+
+	.floorplan-image{
+		background: $blue;
+	}
+
+}
+
+.floorplans{
+	display:none;
+	height:566px;
+}
+
+.floorplan-image p {
+	padding:2.25em;
+}
+
+.instructions p{
+	padding: 0 2.25em;
+}
+
+

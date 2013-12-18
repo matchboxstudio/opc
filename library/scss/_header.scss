@@ -1,0 +1,29 @@
+// HEADER
+.header {
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			padding: 0;
+			margin: 0 auto;
+			background: url(../images/pattern-brown.png) repeat scroll 0 0 $brown2;
+			}// * BP
+		@include breakpoint(67em, $no-query: '.no-mediaqueries') {
+			padding: 0;
+			}// * BP
+	background: $white;
+	position: relative;
+	z-index: 5;
+	
+	
+}
+#inner-header {
+	height: 60px;
+	background: url(../images/pattern-brown.png) repeat scroll 0 0 $brown2;
+	background-size: 15%;
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			height: auto;
+			background: transparent;
+			width: 100%;
+			//max-width: $site-width;
+			position: relative;
+			}// * BP
+}
+

@@ -1,0 +1,41 @@
+// ANIMATIONS
+
+$duration: .5s;
+$duration-slow: 1.25s;
+
+.animated{-webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;-ms-animation-fill-mode:both;-o-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-duration:$duration;-moz-animation-duration:$duration;-ms-animation-duration:$duration;-o-animation-duration:$duration;animation-duration:$duration;}.animated.hinge{-webkit-animation-duration:$duration;-moz-animation-duration:$duration;-ms-animation-duration:$duration;-o-animation-duration:$duration;animation-duration:$duration;}
+
+.animated-slow{-webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;-ms-animation-fill-mode:both;-o-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-duration:$duration-slow;-moz-animation-duration:$duration-slow;-ms-animation-duration:$duration-slow;-o-animation-duration:$duration-slow;animation-duration:$duration-slow;}.animated.hinge{-webkit-animation-duration:$duration-slow;-moz-animation-duration:$duration-slow;-ms-animation-duration:$duration-slow;-o-animation-duration:$duration-slow;animation-duration:$duration-slow;}
+
+@-webkit-keyframes fadeIn {
+	0% {opacity: 0;}	100% {opacity: 1;}
+}
+
+@-moz-keyframes fadeIn {
+	0% {opacity: 0;}	
+	100% {opacity: 1;}
+}
+
+@-o-keyframes fadeIn {
+	0% {opacity: 0;}	
+	100% {opacity: 1;}
+}
+
+@keyframes fadeIn {
+	0% {opacity: 0;}	
+	100% {opacity: 1;}
+}
+
+.fadeIn {
+	-webkit-animation-name: fadeIn;
+	-moz-animation-name: fadeIn;
+	-o-animation-name: fadeIn;
+	animation-name: fadeIn;
+}
+/*
+
+#content {
+	@extend .animated;
+	@extend .fadeIn;
+	}
+*/

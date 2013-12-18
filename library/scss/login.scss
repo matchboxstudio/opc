@@ -1,0 +1,104 @@
+// START HERE
+@import "compass";
+// import mixins
+@import "mixins";
+
+
+body.login {
+	@include background( radial-gradient(lighten($l-gray2, 15%), darken($l-gray2, 10%) 900px));
+	}
+
+
+#login {
+width: 326px;
+} /* the form box */
+
+/*
+This is the Wordpress logo in the admin area.
+You'll have to load your own images and mess
+with the width and height.
+*/
+.login h1 { 
+
+	@include rem-fallback(margin, 0, 0, 1);
+	
+	a {
+		width: 304px;
+			@include background(image-url("logo-light.png"), image-url("logo-bg.jpg"));
+			background-size: auto, 100%;
+			background-repeat: no-repeat;
+			background-position: center center, 0 0;
+			background-color: transparent;
+			position: relative;
+			//width: 304px;
+			height: 162px;
+		//width: 326px;
+		//height: 170px;
+		text-indent: -9999px;
+		overflow: hidden;
+		padding-bottom: 15px;
+		display: block;
+		box-shadow: 2px 2px 8px transparentize($black, .7), -2px 2px 8px transparentize($black, .7);
+	}
+}
+.login form {
+	margin-left: 0;
+	padding: 26px 24px 46px;
+	font-weight: normal;
+	background: white;
+	border: none;
+	border-radius: 3px;
+	box-shadow: none;
+	background: transparent;
+}
+
+.login label {
+	}
+
+body form .input {
+	font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",sans-serif;
+	font-weight: 200;
+	font-size: 24px;
+	width: 97%;
+	padding: 3px;
+	margin-top: 2px;
+	margin-right: 6px;
+	margin-bottom: 16px;
+	border: 1px solid #E5E5E5;
+	background: #FBFBFB;
+	outline: none;
+	box-shadow: inset 1px 1px 2px rgba(200,200,200,0.2);
+}
+
+/*
+You'll have to override some of the default styles
+but since we're referencing the id, it should be easy.
+*/
+#wp-submit {
+	background: $blue;
+	border: none;
+	font-family: $sans-serif;
+	text-transform: uppercase;
+	text-shadow: none;
+	@include rem-fallback(padding, 0, 2.5);
+	@include hovers;
+		&:hover {
+			background: darken($orange, 15%);
+			}
+	} /* login button*/
+
+#nav, #backtoblog {
+	text-align: center;
+	}
+.login #nav a, .login #backtoblog a {
+	color: $black !important;
+	text-shadow: none;
+	}
+
+#login_error, .login .message {
+		@include rem-fallback(margin, 1, 0, 0);
+		background: transparentize($orange, 0);
+		border-color: transparentize($orange, 0);
+		color: $white;
+		text-align: center;
+		}

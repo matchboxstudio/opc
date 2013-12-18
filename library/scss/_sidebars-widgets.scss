@@ -1,0 +1,52 @@
+/*********************
+SIDEBARS & ASIDES
+*********************/
+
+
+.sidebar {
+
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		margin-top: 2.2em;
+		}// * BP
+
+}// sidebar
+
+	.widgettitle {
+	
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			border-bottom: 2px solid #444;
+			margin-bottom: 0.75em;
+			}// * BP
+	
+	}// widgettitle
+
+	.widget {
+		
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			padding: 0 10px;
+			margin: 2.2em 0;
+			}// * BP
+			
+		ul {
+			li {
+			
+				@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+					margin-bottom: 0.75em;
+					}// * BP
+					
+				&:first-child {}
+				&:last-child {}
+				a {}
+				/* deep nesting */
+
+				ul {
+					@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+						margin-top: 0.75em;
+						padding-left: 1em;
+						}// * BP
+				}
+			}
+		}
+	}
+
+

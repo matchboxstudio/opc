@@ -1,0 +1,924 @@
+/* BASE */
+
+/*********************
+GENERAL STYLES
+*********************/
+
+html {
+	background: $brown2;
+	&.suite {
+		background: $white;
+		}
+	}
+   html {
+        font-family: 'mobile';
+    }
+
+    * html { /* IE6 */
+        font-family: 'desktop'
+    }
+
+    *+html { /* IE7 */
+        font-family: 'desktop'
+    }
+
+    @media \0screen {
+        html {  /* IE8 */
+            font-family: 'desktop'
+        }
+    }
+
+    /* Reset your font families here!       
+     ----------------------------------- */
+    body {
+        font-family: $sans-serif;
+    }
+
+    /* Queries for supported browsers.       
+     ----------------------------------- */
+    body:after {
+        display: none;
+    }
+
+    @media screen and (min-width: 35em) {
+        html {
+            font-family: "skinny";
+        }
+        body:after {
+            content: "skinny";
+        }
+    }
+
+    @media screen and (min-width: 1060px) {
+        html {
+            font-family: "desktop";
+        }
+        body:after {
+            content: "desktop";
+        }
+    }
+body {
+	font-family: "futura-pt-n4", "futura-pt", $sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 100%;
+	line-height: 1.6;
+	color: $black;
+}
+
+
+
+
+	// Grid 
+	.onecol    { @include breakpoint($tablet, $no-query: '.no-mediaqueries') {width: 5.801104972%;}  }       /* 4.85%;  } /* grid_1  */
+	.twocol    { @include breakpoint($tablet, $no-query: '.no-mediaqueries') {width: 14.364640883%;} }       /* 13.45%; } /* grid_2  */
+	.threecol  { @include breakpoint($tablet, $no-query: '.no-mediaqueries') {width: 22.928176794%;} }       /* 22.05%; } /* grid_3  */
+	.fourcol   { @include breakpoint($tablet, $no-query: '.no-mediaqueries') {width: 31.491712705%;} }       /* 30.75%; } /* grid_4  */
+	.fivecol   { @include breakpoint($tablet, $no-query: '.no-mediaqueries') {width: 40.055248616%;} }       /* 39.45%; } /* grid_5  */
+	.sixcol    { @include breakpoint($tablet, $no-query: '.no-mediaqueries') {width: 48.618784527%;} }       /* 48%;    } /* grid_6  */
+	.sevencol  { @include breakpoint($tablet, $no-query: '.no-mediaqueries') {width: 57.182320438000005%;} } /* 56.75%; } /* grid_7  */
+	.eightcol  { @include breakpoint($tablet, $no-query: '.no-mediaqueries') {width: 65.74585634900001%;} }  /* 65.4%;  } /* grid_8  */
+	.ninecol   { @include breakpoint($tablet, $no-query: '.no-mediaqueries') {width: 74.30939226%;} }        /* 74.05%; } /* grid_9  */
+	.tencol    { @include breakpoint($tablet, $no-query: '.no-mediaqueries') {width: 82.87292817100001%;} }  /* 82.7%;  } /* grid_10 */
+	.elevencol { @include breakpoint($tablet, $no-query: '.no-mediaqueries') {width: 91.436464082%;} }       /* 91.35%; } /* grid_11 */
+	.twelvecol { @include breakpoint($tablet, $no-query: '.no-mediaqueries') {width: 99.999999993%;} }       /* 100%;   } /* grid_12 */
+	
+	// layout & column defaults
+	.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol {
+	  @include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+	  position: relative;
+	  float: left;
+	  margin-left: 2.762430939%;
+	  }
+	}
+	.offset-onecol {
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		margin-left: 5.801104972%;
+		}
+		}
+	.offset-twocol {
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		margin-left: 14.364640883%;
+		}
+		}
+	.offset-threecol {
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		margin-left: 22.928176794%;
+		}
+		}
+	.offset-fourcol {
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {		
+		margin-left: 22.928176794%;
+		}
+		}
+	.offset-fivecol {
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		margin-left: 22.928176794%;
+		}
+		}
+	.offset-sixcol {
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		margin-left: 22.928176794%;
+		}
+		}
+	.offset-sevencol {
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		margin-left: 22.928176794%;
+		}
+		}
+	.offset-eightcol {
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		margin-left: 22.928176794%;
+		}
+		}
+	.offset-ninecol {
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		margin-left: 22.928176794%;
+		}
+		}
+	.offset-tencol {
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		margin-left: 22.928176794%;
+		}
+		}
+	.offset-elevencol {
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		margin-left: 22.928176794%;
+		}
+		}
+	.first {
+	  @include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+	  margin-left: 0;
+		}
+		}
+	.last {
+	  @include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+	  float: right;
+		}
+		}
+	.half {
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		width: 50%;
+		}
+		}
+	.left {
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		float: left;
+		}
+		}
+	.right {
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		float: right;
+		}
+		}
+	.clear {
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		clear: both;
+		}
+		}
+	.no-margin {
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		margin: 0;
+		}
+		}
+	.third {
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		width: 33.333%;
+		float: left;
+		}
+		}
+
+// Put images to display: block to get rid of hidden space (cause I have never had it any other way).
+img {
+	display: block;
+	max-width: 100%;
+}
+
+.hide {
+	display: none;
+	}
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+
+.wrap {
+	width: 100%;
+	margin: 0 auto;
+	
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		width: 96%;
+		}// * BP
+	
+}
+
+.site-width-wrap, .lt-ie9 .site-width-wrap {
+	width: 100%;
+	max-width: $site-width;
+	margin: 0 auto;
+	position: relative;
+	float: none;
+	
+	
+	
+	}
+
+/*********************
+LINK STYLES
+*********************/
+
+a, a:visited {
+	color: $link-color;
+	@include hovers();
+
+	/* on hover */
+	&:hover, &:focus {
+		color: $link-hover;
+	}
+
+	/* on click */
+	&:active {
+
+	}
+
+	/* mobile tap color */
+	&:link {
+		/*
+		this highlights links on iPhones/iPads.
+		so it basically works like the :hover selector
+		for mobile devices.
+		*/
+		-webkit-tap-highlight-color : rgba( 0, 0, 0, 0.3 );
+	}
+}
+
+/******************************************************************
+H1, H2, H3, H4, H5 STYLES
+******************************************************************/
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
+	text-rendering: optimizelegibility;
+	font-weight: 500;
+	margin: 0;
+	line-height: 1;
+	letter-spacing: .1em;
+	/*
+	if you're going to use webfonts, be sure to check your weights
+	http://css-tricks.com/watch-your-font-weight/
+	*/
+
+	/* removing text decoration from all headline links */
+	a {
+		text-decoration: none;
+	}
+}
+
+h1, .h1 {
+	@include rem-fallback(font-size, 2);
+	text-transform: uppercase;
+	font-weight: 300;
+	color: $brown;
+	margin: 0 0 $marginquarter;
+}
+
+h2, .h2 {
+	@include rem-fallback(font-size, 1.25);
+	font-style: italic;
+	font-weight: 400;
+	color: $black;
+}
+
+h3, .h3 {
+	@include rem-fallback(font-size, 1.125);
+}
+
+h4, .h4 {
+	@include rem-fallback(font-size, 1.1);
+	font-weight: 700;
+}
+
+h5, .h5 {
+	@include rem-fallback(font-size, .846);
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+
+
+/*********************
+POSTS & CONTENT STYLES
+*********************/
+
+#container {
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	
+	.active-nav & {
+		}
+	
+	}
+
+
+
+#content {
+//background: url('../images/pattern-gray.png') repeat scroll 0 0 white;
+}
+
+#inner-content  {
+	//max-width: $site-width;
+	margin: 0 auto;
+	}
+
+#main {
+	
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		margin: 0;
+		}// * BP
+	}
+		.hentry {
+
+			header {}
+
+			footer {}
+
+		} /* end .hentry */
+
+	.single-title,
+	.page-title {
+		margin: $marginquarter 0;
+		}
+
+		.single-title {}
+
+		.page-title {}
+
+		.archive-title { }
+
+		/* want to style individual post classes? Booya! */
+		.post-id {}         /* post by id (i.e. post-3) */
+		.post {}            /* general post style */
+		.page {}            /* general article on a page style */
+		.attachment {}      /* general style on an attatchment */
+		.sticky {}          /* sticky post style */
+		.hentry {}          /* hentry class */
+		.category-slug {}   /* style by category (i.e. category-videos) */
+		.tag-slug {}        /* style by tag (i.e. tag-news) */
+
+		/* post meta */
+		.byline {
+			color: #999;
+
+			time {}
+		}
+
+		/* entry content */
+		.entry-content {
+			p {}
+
+
+			ul, ol, table, dl {}
+
+			ul, ol {
+				padding: 0 0 0 $margin;
+				list-style-type: disc;
+				li {}
+
+			}
+
+			ul {
+
+				li {}
+
+			}
+
+			ol {
+
+				li {}
+
+			}
+
+			blockquote {
+
+				&:before {}
+
+			}
+
+			dl {}
+
+			dt {}
+
+			dd {
+				margin-left: 0;
+				@include rem-fallback(font-size, .9);
+				color: #787878;
+				margin-bottom: $margin;
+			}
+
+			img {
+				margin: 0 0 $margin 0;
+				height: auto;
+			}
+
+			/*
+			image alignment on a screen this size may be
+			a bit difficult. It's set to start aligning
+			and floating images at the next breakpoint,
+			but it's up to you. Feel free to change it up.
+			*/
+			.alignleft, img.alignleft {
+				  
+				 @include breakpoint(25em, $no-query: '.no-mediaqueries') {
+				 		margin-right: $margin; 
+						display: inline; 
+						float: left; 
+				  	}
+
+				}
+			.alignright, img.alignright {
+				
+				@include breakpoint(25em, $no-query: '.no-mediaqueries') {
+					margin-left: $margin; 
+					display: inline; 
+					float: right; 			
+					}
+				}
+		
+			.aligncenter, img.aligncenter {
+				
+				@include breakpoint(25em, $no-query: '.no-mediaqueries') {
+					margin-right: auto; 
+					margin-left: auto; 
+					display: block; 
+					clear: both; 
+					}
+			
+				}
+
+			video, object {
+				max-width: 100%;
+				height: auto;
+			}
+
+			pre {
+				background: #eee;
+				border: 1px solid #cecece;
+				padding: 10px;
+			}
+
+		} /* end .entry-content */
+
+		.wp-caption {
+			background: #eee;
+			padding: 5px;
+
+			/* images inside wp-caption */
+			img {
+				margin-bottom: 0;
+				width: 100%;
+			}
+
+			p.wp-caption-text {
+				@include rem-fallback(font-size, .85);
+				margin: 4px 0 7px;
+				text-align: center;
+			}
+
+		} /* end .wp-caption */
+
+		/* image gallery styles */
+		.gallery {
+
+			dl {
+
+				a {}
+
+				img {}
+
+			}
+
+			dt {}
+
+			dd {}
+
+		} /* end .gallery */
+
+		/* gallery caption styles */
+		.gallery-caption {}
+
+		.size-full {}
+		.size-large {}
+		.size-medium {}
+		.size-thumbnail {}
+
+
+ul, ol {
+			//	padding: 0 0 0 $margin;
+			//	list-style-type: disc;
+				li {}
+
+			}
+
+
+// Tout Modules
+
+.tout {
+	//background: #f1f1f1;
+	//padding: $marginhalf;
+	
+	h2 {
+		margin-top: $marginquarter;
+		}
+	
+	}
+
+
+/******************************************************************
+PAGE NAVI STYLES
+******************************************************************/
+
+.page-navigation,
+.wp-prev-next {
+	margin: 1.1em 0 2.2em;
+}
+	.bones_page_navi {
+		margin: 0;
+		text-align: center;
+		padding: $margin 0;
+		
+		a {
+			padding: 3px 0.5em;
+			margin: 0 .5em;
+			text-decoration: none;
+			}
+			
+		li {
+			float: left;
+			margin-left: 10px;
+
+			a {
+				padding: 3px 6px;
+				display: block;
+				text-decoration: none;
+				position: relative;
+				
+
+				&:hover,
+				&:focus {
+					color: #f01d4f;
+					text-decoration: underline;
+				}
+			}
+
+		}
+
+		/* current page link */
+		li.bpn-current {
+			padding: 3px 6px;
+			border-bottom: 2px solid #f01d4f;
+			position: relative;
+
+			a {
+				/* hovering on current page link */
+				&:hover,
+				&:focus {}
+
+			}
+
+		} /* end .bones_page_navi .bpn-current */
+
+		/* common styles for page-navi links */
+		li.bpn-prev-link,
+		li.bpn-next-link {
+			font-weight: 700;
+
+			a {
+				padding: 0;
+			}
+		}
+
+		/* remove the bg on end links */
+		li.bpn-prev-link a:hover,
+		li.bpn-next-link a:hover,
+		li.bpn-first-page-link a:hover,
+		li.bpn-last-page-link a:hover {
+			background: none;
+		}
+
+		/* previous link */
+		li.bpn-prev-link {
+			a {
+				&:hover,
+				&:focus {}
+			}
+		}
+
+		/* next page link */
+		li.bpn-next-link {
+			a {
+				&:hover,
+				&:focus {}
+			}
+		}
+
+		/* first page link */
+		li.bpn-first-page-link {
+			a {
+				&:hover,
+				&:focus {}
+			}
+		}
+
+		/* last page link */
+		li.bpn-last-page-link {
+			a {
+				&:hover,
+				&:focus {}
+			}
+		}
+
+	} /* end .bones_page_navi */
+
+	/* fallback previous & next links */
+	.wp-prev-next {
+
+		ul {}
+
+		.prev-link {
+			float: left;
+		}
+
+		.next-link {
+			float: right;
+		}
+
+	} /* end .wp-prev-next */
+
+/******************************************************************
+COMMENT STYLES
+******************************************************************/
+
+/* h3 comment title */
+#comments {
+
+	/* number of comments span */
+	span {}
+
+}
+
+.comment-nav {
+
+	ul {
+
+		li {}
+
+	}
+}
+
+
+.commentlist {
+
+	li {
+		position: relative;
+		clear: both;
+		overflow: hidden;
+		list-style-type: none;
+		margin-bottom: $margin;
+		padding: 0.7335em 10px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		ul.children {
+			margin: 0;
+
+			li {}
+
+			/* variations */
+			.comment {}
+			.alt {}
+			.odd {}
+			.even {}
+			.depth-1 {}           /* change number for different depth */
+			.byuser {}
+			.bypostauthor {}
+			.comment-author-admin {}
+
+		} /* end .commentlist li ul.children */
+	}
+
+	li[class*=depth-] {
+		margin-top: 1.1em;
+	}
+
+	li.depth-1 {
+		margin-left: 0;
+		margin-top: 0;
+	}
+
+	li:not(.depth-1) {
+		margin-right: -10px;
+		margin-left: -10px;
+		margin-top: 0;
+		padding-bottom: 0;
+	}
+
+	li.depth-2 {}
+	li.depth-3 {}
+	li.depth-4 {}
+	li.depth-5 {}
+
+	/* general comment classes */
+	.alt {}
+	.odd {
+		background: #eee;
+	}
+	.even {
+		background: #fefefe;
+	}
+	.parent {}
+	.comment {}
+	.children {}
+	.pingback {}
+	.bypostauthor {}
+	.comment-author {}
+	.comment-author-admin {}
+	.thread-alt {}
+	.thread-odd {}
+	.thread-even {}
+
+	/* vcard */
+	.vcard {
+		margin-left: 50px;
+
+		cite.fn {
+			font-weight: 700;
+			font-style: normal;
+
+			a.url {}
+
+		}
+
+		time {
+			float: right;
+
+			a {
+				color: #999;
+				text-decoration: none;
+
+				&:hover {
+					text-decoration: underline;
+				}
+
+			}
+
+		}
+
+		img.photo {}
+
+		img.avatar {
+			position: absolute;
+			left: 10px;
+			padding: 2px;
+			border: 1px solid #cecece;
+			background: #fff;
+		}
+
+	} /* end .commentlist .vcard */
+
+
+	/* comment meta */
+	.comment-meta {
+
+		a {}
+
+	}
+
+	.commentmetadata {
+
+		a {}
+
+	}
+
+	/* comment content */
+	.comment_content {
+		margin-left: 50px;
+
+		p {
+			margin: 0.7335em 0 $margin;
+			@include rem-fallback(font-size, 1);
+			line-height: $margin;
+		}
+
+	} /* end .commentlist .comment_content */
+
+	/* comment reply link */
+	.comment-reply-link {
+		text-decoration: none;
+		float: right;
+		background: #4598bb;
+		padding: 3px 5px;
+		color: #fff;
+		opacity: 0.65;
+		margin-bottom: 10px;
+		font-weight: 700;
+		@include rem-fallback(font-size, .9);
+
+		&:hover,
+		&:focus {
+			opacity: 1;
+		}
+
+	} /* end .commentlist .comment-reply-link */
+
+} /* end .commentlist */
+
+/******************************************************************
+COMMENT FORM STYLES
+******************************************************************/
+
+.respond-form {
+	margin: $margin 10px;
+	padding-bottom: 2.2em;
+
+	form {
+		margin: 0.75em 0;
+
+		li {
+			list-style-type: none;
+			clear: both;
+			margin-bottom: 0.7335em;
+
+			label,
+			small {
+				display: none;
+			}
+		}
+
+		input[type=text],
+		input[type=email],
+		input[type=url],
+		textarea {
+			padding: 3px 6px;
+			background: #efefef;
+			border: 2px solid #cecece;
+			line-height: $margin;
+
+			&:focus {
+				background: #fff;
+			}
+
+			/* form validation */
+			&:invalid {
+				outline: none;
+				border-color: #fbc2c4;
+				background-color: #f6e7eb;
+				-webkit-box-shadow: none;
+				   -moz-box-shadow: none;
+				    -ms-box-shadow: none;
+						box-shadow: none;
+			}
+		}
+
+		input[type=text],
+		input[type=email],
+		input[type=url] {
+			max-width: 400px;
+			min-width: 250px;
+		}
+
+		textarea {
+			resize: none;
+			width: 97.3%;
+			height: 150px;
+		}
+
+	}
+}
+
+	/* comment submit button */
+	#submit {}
+
+	/* comment form title */
+	#comment-form-title {
+		margin: 0 0 1.1em;
+	}
+
+	/* cancel comment reply link */
+	#cancel-comment-reply {
+		a {}
+	}
+
+	/* logged in comments */
+	.comments-logged-in-as {}
+
+	/* allowed tags */
+	#allowed_tags {
+		margin: $margin 10px 0.7335em 0;
+	}
+
+	/* no comments */
+	.nocomments {
+		margin: 0 20px 1.1em;
+	}
+

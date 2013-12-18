@@ -1,0 +1,612 @@
+// BUILDING
+
+
+.page-template-building-php, .page-template-building-sub-php, .page-template-available-space-php {
+	#inner-content {
+		background: $white;//$orange;
+		}
+	.page-name {
+		box-shadow: inset 0 0 31px transparentize(darken($orange, 25%), .6);
+		text-shadow: 1px 1px 4px transparentize(darken($orange, 20%), .5);
+		color: $white;
+		font-weight: 500;
+		@include rem-fallback(font-size, 1.4);
+		line-height: 1;
+		padding: $marginhalf;
+		text-align: center;
+		border-top: 5px solid rgba(41, 20, 14, 0.37);
+		border-bottom: 5px solid rgba(41, 20, 14, 0.37);
+		margin: 0;
+		@include background(radial-gradient(lighten($orange, 5%), darken($orange, 10%) 400px));
+		
+		.no-cssgradients & {
+			background: $orange;	
+			}
+
+			@include breakpoint($tablet, $no-query: '.no-mediaqueries'){
+				margin: $marginquarter 0;
+				@include rem-fallback(font-size, 2);
+				background: none;
+				box-shadow: none;
+				text-shadow: none;
+				color: $black;
+				border: none;
+				padding: 0;
+				text-align: left;
+				font-weight: 300;
+				@include rem-fallback(margin, 0, 0, .75);
+				//margin: $marginhalf 0;
+				}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+			
+			
+		}// page-name
+		
+	&.sterling-plaza .page-name {
+			box-shadow: inset 0 0 31px transparentize(darken($blue, 25%), .6);
+			text-shadow: 1px 1px 4px transparentize(darken($blue, 20%), .5);
+			@include background(radial-gradient(lighten($blue, 5%), darken($blue, 10%) 400px));
+			border-top: 5px solid rgba(41, 20, 14, 0.25);
+			border-bottom: 5px solid rgba(41, 20, 14, 0.25);
+			
+			.no-cssgradients & {
+				background: $blue;	
+				}
+
+			@include breakpoint($tablet, $no-query: '.no-mediaqueries'){
+				background: none;
+				box-shadow: none;
+				text-shadow: none;
+				border: none;
+				}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+		}
+		
+	}// page-template-page-building-php
+
+.building {
+	//min-height: 702px; think this was during templating
+	padding: 0;
+	position: relative;
+	background: $white;
+	
+
+
+	.sidebar {
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries'){
+			position: relative;
+			z-index: 2;
+			min-height: 466px;
+			margin: 0;
+			background: transparentize($white, .06);				
+			
+
+
+			}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+		.lt-ie9 & {
+			background: $white;
+			}
+	}// sidebar
+
+	.nav-btn-wrap {
+		position: absolute;
+		top: 65px;
+		left: 0;right: 0;
+		
+	
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries'){
+			position: absolute;
+			bottom: 0;
+			top: auto;
+			left: 0;
+			right: 0;
+			}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+		}
+	nav {
+		padding: 0;
+		a {
+			background: lighten($l-gray, 10%);
+			position: relative;
+			display: inline-block;
+			text-decoration: none;
+			letter-spacing: .1em;
+			font-weight: 500;
+			text-align: center;
+			text-transform: uppercase;
+			margin: 0;
+			float: left;
+			width: 33.333%;
+			border-left: 1px solid $white;
+			@include rem-fallback(font-size, 1);
+			@include hovers(0);			
+			padding: 0;
+			@extend .image-replacement;
+				&:first-child {
+					border-left: none;
+					}
+			img {
+				margin: $margin auto $marginhalf;
+				height: 25px;
+				}
+			h3 { 
+				@include rem-fallback(font-size, .6);
+				padding: 0 0 $margin;
+				display: block;
+				text-indent: 0;
+				}
+			
+			@include breakpoint($phone-landscape){
+				text-indent: 0;
+				overflow: visible;
+
+					img {
+						margin: $margin auto $marginhalf;
+						}
+			
+					h3 {
+						@include rem-fallback(font-size, .75);
+						padding: 0 0 $margin;
+						}
+				
+				}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+			
+			@include breakpoint($tablet, $no-query: '.no-mediaqueries'){
+				display: inline-block;
+				position: relative;
+				text-align: left;
+				z-index: 1;
+				float: left;
+				clear: left;
+				border-left: none;
+				padding: ($marginhalf + $marginquarter);
+				width: 100%;
+				margin: 0;
+				color: $d-gray;
+				@include rem-fallback(font-size, 1.2);
+				border-top: 2px solid lighten($d-gray, 30%);
+					&:after {
+						border-left: 20px solid transparent;
+						@include hovers;
+						}
+					&:hover {
+						color: $white;
+						background: darken($l-gray, 5%);
+							&:after {
+							width: 0; 
+							height: 0; 
+							border-top: 30px solid transparent;
+							border-bottom: 30px solid transparent;
+							border-left: 20px solid darken($l-gray, 5%);
+							position: absolute;
+							content: "";
+							right: -20px;
+							top: 0;
+							@include hovers;
+							}
+						}
+					&:first-child {	
+						margin-top: 0;
+							&:after {
+								}
+							&:hover {
+								&:after {
+									}
+								}
+						}// first-child
+						
+					img {
+						display: none;
+						}
+					
+					h3 {
+						@include rem-fallback(font-size, 1.2);
+						padding: 0;
+						}
+					
+					}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+				
+			}// nav a
+
+
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries'){
+			position: relative;
+			z-index: 2;
+			min-height: 566px;
+			}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/	
+	
+	}// nav
+
+
+	.intro {
+		p {
+			text-align: center;
+			//display: none;
+			@include rem-fallback(padding, 8.5, 3, 3);
+			margin: 0;
+			}
+		
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			@include rem-fallback(padding, 3.25, 2);
+			//padding: ($margin + $marginhalf);
+			position: absolute;
+			top: 0;
+			text-align: left;
+			p { 
+				text-align: left;
+				padding: 0;
+				}
+			}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+
+		}// intro
+	
+	
+		#feature {
+			
+			@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+				background: $black;
+				position: absolute;
+				left: 0;
+				top: 0;
+				max-height: 566px;
+				}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+			}
+	
+	.slide {
+		box-shadow: none;
+		}
+	
+	.dummy, .slide {
+		height: 195px;
+		@include breakpoint(46em) {
+			height: 325px;
+			}
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			height: 566px;
+			}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+		}
+
+
+
+}// building 
+
+.building-info {
+	background: $white;
+	text-align: center;
+	
+	div {
+		@extend %relative;
+		}
+	
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		margin: 0 auto $margin;
+		text-align: left;
+		background: transparent;
+		}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+
+	h3 {
+		@include rem-fallback(font-size, 2.4);
+		font-weight: 300;
+		text-transform: uppercase;
+		margin: 1.25em 0 .625em;
+		margin: 3rem 0 1.5rem;
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			margin: 1.5em .75em;
+			margin: 3rem 1.5rem;
+			@include rem-fallback(font-size, 2);
+			}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+
+		}// h3
+		
+		.features {
+			margin: 0 0 $margin2x;
+			li {
+				line-height: 1.8;
+				}
+			@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+				margin: $margin2x $margin;
+				li {
+					list-style-type: none;
+						&:before {
+							content: "\2022 ";
+							@include rem-fallback(font-size, .5);
+							color: $black;
+							margin: 0 $marginhalf 0 0;
+							}
+					}// li
+					}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+			
+			}// features
+	
+		
+	}// building info
+
+
+.download.brochure {
+	width: 100%;
+	@include background(radial-gradient(lighten($orange, 10%), darken($orange, 10%) 400px));
+	box-shadow: inset 0 0 31px transparentize(darken($orange, 25%), .6);
+	display: block;
+	@include rem-fallback(padding, 3);
+	@extend .image-replacement;
+
+	.no-cssgradients & {
+		background: $orange;	
+		}
+
+		img {
+			margin: 0 auto;
+			width: 100%;
+			max-width: 344px;
+			}
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		width: auto;
+		background: transparent;
+		padding: 0;
+		margin: $margin 0 0 0;
+		box-shadow: none;
+		img {
+			max-width: 100%;
+			}
+		}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+		
+	.sterling-plaza & {
+		@include background(radial-gradient(lighten($blue, 10%), darken($blue, 10%) 400px));
+		box-shadow: inset 0 0 31px transparentize(darken($blue, 45%), .6);
+
+		.no-cssgradients & {
+			background: $blue;	
+			}
+
+		}
+
+
+	}// download.brochure
+
+
+
+
+.building-image {
+
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries'){
+		position: absolute;
+		right: 0;
+		top: 0;
+		}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+	}
+	
+	
+	
+	
+	
+	
+// BUILDING SUB PAGE TEMPLATE STYLES
+
+.building-content {
+	z-index: 2;
+	}
+.building-main-content {	
+	text-align: center;
+	//color: $white;
+	background: $white;
+	@include rem-fallback(padding, 3);
+		
+	.callout {
+	@extend .h2;
+	font-family: $serif;
+	line-height: 1.2;
+		@include rem-fallback(font-size, 1.3);
+		}
+	li {
+		@include rem-fallback(margin, 0, 0, .25, 0);
+		text-align: center;
+		}
+
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		height: 566px;
+		text-align: left;
+		//@include rem-fallback(padding, 0, 4, 1.5, 4);
+		width: 65.74585634900001% + 2.762430939%;
+		margin: 0;
+		color: $white;
+		.sterling-plaza & {
+			background: $blue;
+			}
+		.preston-commons & {
+			background: $l-copper;
+			}
+		
+		.callout {
+			color: $white;
+			font-style: normal;
+			font-family: $sans-serif;
+			@include rem-fallback(font-size, 1.75);
+			@include rem-fallback(margin, 3, 0, 1, 0);
+			font-weight: 300;
+			line-height: 1.231;
+			letter-spacing: 0;
+			}
+		li {
+			text-align: left;
+			@include rem-fallback(margin, 0, 0, .25, 1);
+			@include rem-fallback(font-size, 1.3);
+			font-weight: 300;
+			line-height: 1.4;
+				&:before {
+				content: "\2022 ";
+				color: lighten($blue, 30%);
+				line-height: 100%;
+				vertical-align: middle;
+				@include rem-fallback(font-size, .5);
+				@include rem-fallback(margin, 0, .5, 0, -1);
+				}
+	
+			}
+		.left-col {
+			width: 47%;
+			margin-right: 5%;
+			}
+	}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+
+}
+
+
+.page-template-building-sub-php {
+	.intro p {
+		display: none;
+			@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+				display: block;
+				}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+		
+		}	
+	.building-main-content {
+		@include rem-fallback(padding, 8.25, 3, 3);
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			@include rem-fallback(padding, 0, 4, 1.5, 4);
+			}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+	}
+}
+
+// CONTACT PAGE SPECIFICS
+
+.contact-page {
+
+	.building-main-content {
+		@include rem-fallback(margin, 0, 0, 3);
+		.sterling-plaza & {
+			background: $blue;
+			}
+		.preston-commons & {
+			background: $l-copper;
+			}
+		.contact-entry, .contact-email a {
+			color: $white;
+		
+			}
+			
+	}// building-main-content
+
+	.building-info-title {
+		display: none;
+		}
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		.building-main-content {
+			@include rem-fallback(margin, 0);
+			.contact-title {
+				border-right: 2px solid $white;
+				}
+			}
+		.building-info-title {
+			display: block;
+			}
+		}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/ 
+
+
+}// contact-page
+
+
+h3.section-title {
+	text-transform: uppercase;
+	@include rem-fallback(font-size, 1.6);
+	@include rem-fallback(margin, 0, 0, 1.5);
+	font-weight: 300;
+	letter-spacing: 0;
+
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		text-transform: uppercase;
+		@include rem-fallback(font-size, 1.6);
+		@include rem-fallback(margin, 3, 0, 1.5);
+		font-weight: 300;
+		letter-spacing: 0;
+	}// * BP //++++++++++++++++++++++++++++++++++++++++++++++++/
+
+	.sterling-plaza & {
+		color: $blue;
+		}
+	.preston-commons & {
+		color: $d-copper;
+		}
+
+	
+.building-main-content & {
+	color: $white;
+	}
+
+}// section title
+
+
+//////////////////////////////////////////////////// The contact module
+.contact-entry {
+	color: $black;
+	@include rem-fallback(margin, 0, 0, 1.5);
+
+	p, .leasing-contact & p.contact-info {
+		@include rem-fallback(margin, 0, 0, 1);
+		margin-left: auto;
+		margin-right: auto;
+		@include rem-fallback(font-size, .9);
+		line-height: 1.4;
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			@include rem-fallback(margin, 0, 0, 1);
+			}// * BP
+
+		}
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		@include rem-fallback(margin, 0);
+		}// * BP
+
+	.contacts & p.contact-info {
+			@include rem-fallback(margin-bottom, 1);
+			
+		}
+	.contacts & {
+		&:last-child p {
+			@include rem-fallback(margin-bottom, 3);
+			}
+		} 
+}// contact-entry
+
+.contact-name {
+	@include rem-fallback(font-size, 1.5);
+	margin: 0;
+	font-weight: 300;
+
+	.building & {
+		@include rem-fallback(margin, 0, 0, .5);
+		}
+
+	}
+
+.contact-title, .contact-email {
+	text-transform: uppercase;
+	font-weight: 600;
+}
+.contact-title {
+	display: block;
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			display: inline;
+			@include rem-fallback(padding, 0, .5, 0, 0);
+			@include rem-fallback(margin, 0, .25, 0, 0);
+			border-right: 2px solid $black;
+			}// * BP
+	}
+.contact-email a {
+	text-decoration: none;
+	clear: both;
+	color: $black;
+	
+}
+
+.phone-fax {
+	font-weight: 600;
+	text-transform: uppercase;
+	}
+
+//////////////////////////////////////////////////// End of contact module
+
+
+.secondary-contact {
+	@include rem-fallback(margin, 0, 0, 3, 0);
+
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		float: left;
+		@include rem-fallback(margin, 0, 0, 3, 4);
+		}// * BP
+}// secondary-contact
